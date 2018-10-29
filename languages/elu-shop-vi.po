@@ -1,0 +1,510 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Elu-shop-vn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-29 16:26+0700\n"
+"PO-Revision-Date: 2018-10-29 16:30+0700\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: css\n"
+"X-Poedit-SearchPathExcluded-1: fonts\n"
+"X-Poedit-SearchPathExcluded-2: js\n"
+"X-Poedit-SearchPathExcluded-3: demos\n"
+"X-Poedit-SearchPathExcluded-4: images\n"
+"X-Poedit-SearchPathExcluded-5: sass\n"
+
+#: src/Cart.php:31 templates/checkout.php:124
+msgid "Buy now"
+msgstr "Mua ngay"
+
+#: src/Cart.php:35 src/Cart.php:56 templates/account/order.php:74
+#: templates/admin/order.php:103 templates/checkout.php:93
+#: templates/order.php:20
+msgid "Amount"
+msgstr "Số lượng"
+
+#: src/Cart.php:51
+msgid "Add cart"
+msgstr "Thêm vào giỏ hàng"
+
+#: src/Cart.php:52
+msgid "Added to shopping cart"
+msgstr "Đã thêm vào giỏ hàng"
+
+#: src/Order/AdminList.php:19 src/Order/AdminList.php:20
+msgid "Orders"
+msgstr "Đơn đặt hàng"
+
+#: src/Order/AdminList.php:36
+msgid "Number of lines per page"
+msgstr "Số dòng trên mỗi trang"
+
+#: src/Order/Notification.php:40 src/Order/Table.php:180
+#: templates/admin/orders.php:3
+msgid "Order"
+msgstr "Đơn hàng"
+
+#: src/Order/Table.php:26
+msgid "Finish"
+msgstr "Hoàn thành"
+
+#: src/Order/Table.php:27 src/Order/Table.php:196 src/Order/Table.php:217
+#: templates/account/order.php:27 templates/account/orders.php:38
+#: templates/admin/order.php:21 templates/admin/order.php:43
+msgid "Processing"
+msgstr "Đang sử lý"
+
+#: src/Order/Table.php:28 src/Order/Table.php:270
+msgid "Move to trash"
+msgstr "Di chuyển thùng rác"
+
+#: src/Order/Table.php:44
+msgid "Filter"
+msgstr "Bộ lọc"
+
+#: src/Order/Table.php:48 src/Order/Table.php:279 src/Order/Table.php:292
+msgid "Empty trash"
+msgstr "Dọn sạch thùng rác"
+
+#: src/Order/Table.php:74
+msgid "All dates"
+msgstr "Tất cả ngày"
+
+#: src/Order/Table.php:88
+#, php-format
+msgid "%1$s %2$d"
+msgstr ""
+
+#: src/Order/Table.php:154
+msgid "Date"
+msgstr "Ngày"
+
+#: src/Order/Table.php:155 templates/account/order.php:23
+#: templates/account/orders.php:27 templates/admin/order.php:17
+msgid "Status"
+msgstr "Trạng thái"
+
+#: src/Order/Table.php:156 src/Product/PostType.php:14
+#: src/Product/PostType.php:15
+msgid "Product"
+msgstr "Sản phẩm"
+
+#: src/Order/Table.php:157 templates/admin/order.php:105
+#: templates/checkout.php:119
+msgid "Total"
+msgstr "Tổng"
+
+#: src/Order/Table.php:197 src/Order/Table.php:207
+#: templates/account/order.php:28 templates/account/orders.php:39
+#: templates/admin/order.php:22 templates/admin/order.php:33
+msgid "Completed"
+msgstr "Đã hoàn thành"
+
+#: src/Order/Table.php:198 templates/account/order.php:29
+#: templates/account/orders.php:40 templates/admin/order.php:23
+msgid "Deleted"
+msgstr "Đã xóa"
+
+#: src/Order/Table.php:252
+msgid "Detail"
+msgstr "Chi tiết"
+
+#: src/Order/Table.php:261 src/Order/Table.php:296
+msgid "Restore"
+msgstr "Khôi phục"
+
+#: src/Order/Table.php:291 templates/order.php:23
+msgid "Delete"
+msgstr "Xóa"
+
+#: src/Product/PostType.php:16
+msgctxt "admin menu"
+msgid "Products"
+msgstr "Sản phẩm"
+
+#: src/Product/PostType.php:17
+msgctxt "add new on admin bar"
+msgid "Product"
+msgstr "Thêm sản phẩm"
+
+#: src/Product/PostType.php:18
+msgctxt "Product"
+msgid "Add New"
+msgstr "Thêm mới"
+
+#: src/Product/PostType.php:19
+msgid "Add New Product"
+msgstr "Thêm mới"
+
+#: src/Product/PostType.php:20
+msgid "New Product"
+msgstr "Sản phẩm mới"
+
+#: src/Product/PostType.php:21
+msgid "Edit Product"
+msgstr "Sửa sản phẩm"
+
+#: src/Product/PostType.php:22
+msgid "View Product"
+msgstr "Xem sản phẩm"
+
+#: src/Product/PostType.php:23
+msgid "All Products"
+msgstr "Tất cả sản phẩm"
+
+#: src/Product/PostType.php:24
+msgid "Search Products"
+msgstr "Tìm sản phẩm"
+
+#: src/Product/PostType.php:25
+msgid "Parent Products:"
+msgstr ""
+
+#: src/Product/PostType.php:26
+msgid "No Products found."
+msgstr "Không tìm thấy sản phẩm nào."
+
+#: src/Product/PostType.php:27
+msgid "No Products found in Trash."
+msgstr ""
+
+#: src/Product/PostType.php:45 src/Product/PostType.php:46
+msgid "Category"
+msgstr "Chuyên mục"
+
+#: src/Product/PostType.php:61
+msgid "Search Tags"
+msgstr "Tìm kiếm thẻ"
+
+#: src/Product/PostType.php:62
+msgid "Popular Tags"
+msgstr "Thẻ phổ biến"
+
+#: src/Product/PostType.php:63
+msgid "All Tags"
+msgstr "Tất cả thẻ"
+
+#: src/Product/PostType.php:66
+msgid "Edit Topic"
+msgstr "Chỉnh sửa chủ đề"
+
+#: src/Product/PostType.php:67
+msgid "Update Topic"
+msgstr "Cập nhật chủ đề"
+
+#: src/Product/PostType.php:68
+msgid "Add New Topic"
+msgstr "Thêm mới"
+
+#: src/Product/PostType.php:69
+msgid "New Topic Name"
+msgstr "Tên chủ đề mới"
+
+#: src/Product/PostType.php:70
+msgid "Separate Tags with commas"
+msgstr ""
+
+#: src/Product/PostType.php:71
+msgid "Add or remove Tags"
+msgstr "Thêm hoặc xóa thẻ"
+
+#: src/Product/PostType.php:72
+msgid "Choose from the most used Tags"
+msgstr ""
+
+#: src/Product/PostType.php:73
+msgid "Tags"
+msgstr ""
+
+#: src/Product/PostType.php:92
+msgid "Product Information"
+msgstr "Thông tin sản phẩm"
+
+#: src/Product/PostType.php:97 templates/account/order.php:75
+#: templates/order.php:21
+msgid "Price"
+msgstr "Giá"
+
+#: src/Product/PostType.php:100
+#, php-format
+msgid "In %s."
+msgstr ""
+
+#: src/Product/PostType.php:105
+msgid "Price before sale"
+msgstr ""
+
+#: src/Product/PostType.php:108
+#, php-format
+msgid "In %s. Leave blank if the product has no discount."
+msgstr "Tính bang %s. Để trống nếu sản phẩm không giảm giá."
+
+#: src/Settings.php:15
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: src/Settings.php:20
+msgid "General"
+msgstr "Chung"
+
+#: src/Settings.php:21
+msgid "Payment"
+msgstr "Thanh toán"
+
+#: src/Settings.php:22
+msgid "Shipping"
+msgstr ""
+
+#: src/Settings.php:23
+msgid "Support"
+msgstr "Hỗ trợ"
+
+#: src/Settings.php:38
+msgid "Product Slug"
+msgstr "Slug sản phẩm"
+
+#: src/Settings.php:44
+msgid "Product Category Slug"
+msgstr "Thể loại sản phẩm"
+
+#: src/Settings.php:50
+msgid "Product Tag Slug"
+msgstr "Thể loại thẻ sản phẩm"
+
+#: src/Settings.php:56
+msgid "Cart Page"
+msgstr ""
+
+#: src/Settings.php:62
+msgid "Checkout Page"
+msgstr ""
+
+#: src/Settings.php:68
+msgid "Confirmation Page"
+msgstr ""
+
+#: src/Settings.php:83
+msgid "Currency"
+msgstr "Đơn vị"
+
+#: src/Settings.php:88
+msgid "Payment Methods"
+msgstr "Phương thức thanh toán"
+
+#: src/Settings.php:117
+msgid "Shipping Methods"
+msgstr ""
+
+#: src/Settings.php:132
+msgid "Add to cart"
+msgstr "Thêm vào giỏ hàng"
+
+#: src/Settings.php:137
+msgid "Buy fast"
+msgstr "Mua nhanh"
+
+#: templates/account/order.php:9
+msgid ""
+"Thank you for your order. Your order is currently being processed. Below is "
+"the order information. We will contact you as soon as possible!"
+msgstr ""
+"Cảm ơn bạn đã đặt hàng của bạn. Đơn đặt hàng của bạn hiện đang được xử lý. "
+"Dưới đây là thông tin đơn đặt hàng. Chúng tôi sẽ liên hệ với bạn ngay khi có "
+"thể!"
+
+#: templates/account/order.php:12
+msgid "Orders information"
+msgstr "Thông tin đơn đặt hàng"
+
+#: templates/account/order.php:16
+msgid "Order item"
+msgstr "Thứ tự"
+
+#: templates/account/order.php:19 templates/admin/order.php:13
+msgid "Time Order"
+msgstr "Giờ đặt hàng"
+
+#: templates/account/order.php:37 templates/admin/order.php:80
+#: templates/checkout.php:66
+msgid "Form of transportation"
+msgstr "Hình thức vận chuyển"
+
+#: templates/account/order.php:41 templates/account/order.php:76
+#: templates/account/orders.php:28 templates/admin/order.php:56
+msgid "Total money"
+msgstr "Tổng tiền"
+
+#: templates/account/order.php:47
+msgid "Customer information"
+msgstr "Thông tin khách hàng"
+
+#: templates/account/order.php:50
+msgid "Customer"
+msgstr "Khách hàng"
+
+#: templates/account/order.php:54 templates/admin/order.php:76
+#: templates/checkout.php:28
+msgid "Email"
+msgstr ""
+
+#: templates/account/order.php:58 templates/admin/order.php:77
+#: templates/checkout.php:32
+msgid "Phone"
+msgstr "Điện thoại"
+
+#: templates/account/order.php:62 templates/admin/order.php:78
+#: templates/checkout.php:36
+msgid "Address"
+msgstr "Địa chỉ"
+
+#: templates/account/order.php:69 templates/admin/order.php:98
+msgid "Products purchased"
+msgstr "Sản phẩm đã mua"
+
+#: templates/account/order.php:73
+msgid "Products name"
+msgstr "Tên sản phẩm"
+
+#: templates/account/orders.php:1
+msgid "Order list"
+msgstr "Danh sách đơn đặt hàng"
+
+#: templates/account/orders.php:14
+msgid "You have no orders."
+msgstr "Bạn không có đơn đặt hàng nào."
+
+#: templates/account/orders.php:15
+msgid "Click here"
+msgstr "Click ngay"
+
+#: templates/account/orders.php:15
+msgid "to start the purchase"
+msgstr "để bắt đầu mua hàng"
+
+#: templates/account/orders.php:25
+msgid "Order Code"
+msgstr "Mã đặt hàng"
+
+#: templates/account/orders.php:26
+msgid "Time"
+msgstr "Thời gian"
+
+#: templates/account/orders.php:29
+msgid "Action"
+msgstr "Hoạt động"
+
+#: templates/account/orders.php:47
+msgid "See details"
+msgstr "Xem chi tiết"
+
+#: templates/admin/order.php:8
+msgid "Order detail"
+msgstr "Chi tiết đặt hàng"
+
+#: templates/admin/order.php:10
+msgid "Order Information"
+msgstr "Thông tin đặt hàng"
+
+#: templates/admin/order.php:60
+msgid "Buyer"
+msgstr "Người mua"
+
+#: templates/admin/order.php:71
+msgid "Buyer information"
+msgstr "Thông tin người mua"
+
+#: templates/admin/order.php:75
+msgid "Name"
+msgstr "Họ tên"
+
+#: templates/admin/order.php:79 templates/checkout.php:43
+msgid "Payments"
+msgstr "Thanh toán"
+
+#: templates/admin/order.php:81
+msgid "Note"
+msgstr "Ghi chú"
+
+#: templates/admin/order.php:102 templates/checkout.php:92
+#: templates/order.php:19
+msgid "Product name"
+msgstr "Tên sản phẩm"
+
+#: templates/admin/order.php:104
+msgid "price"
+msgstr "giá"
+
+#: templates/admin/orders.php:9
+msgid "Search order"
+msgstr "Thứ tự tìm kiếm"
+
+#: templates/checkout.php:1 templates/order.php:1
+msgid "Updating the cart"
+msgstr "Cập nhật giỏ hàng"
+
+#: templates/checkout.php:13 templates/order.php:11
+msgid "There are no products in your cart."
+msgstr "Không có sản phẩm trong giỏ hàng của bạn."
+
+#: templates/checkout.php:13 templates/order.php:11
+msgid "click here"
+msgstr "click ngay"
+
+#: templates/checkout.php:13 templates/order.php:11 templates/order.php:55
+msgid "Back home"
+msgstr "Quay về trang chủ"
+
+#: templates/checkout.php:18 templates/order.php:56
+msgid "Pay"
+msgstr "Thanh toán"
+
+#: templates/checkout.php:21
+msgid "Shipment Details"
+msgstr "Thông tin giao hàng"
+
+#: templates/checkout.php:24
+msgid "Name the recipient"
+msgstr "Đặt tên người nhận"
+
+#: templates/checkout.php:91 templates/order.php:18
+msgid "STT"
+msgstr ""
+
+#: templates/checkout.php:94 templates/order.php:22
+msgid "Into money"
+msgstr "Thành tiền"
+
+#: templates/checkout.php:121
+msgid "Note when ordering"
+msgstr "Lưu ý khi đặt hàng"
+
+#~ msgid "Calculated in units"
+#~ msgstr "Tính theo đơn vị"
+
+#~ msgid "Transport"
+#~ msgstr "Vận chuyển"
+
+#~ msgid "Order page"
+#~ msgstr "Trang đặt hàng"
+
+#~ msgid "Payment page"
+#~ msgstr "Trang thanh toán"
+
+#~ msgid "Detail invoice"
+#~ msgstr "Chi tiết"
+
+#~ msgid "Process finished"
+#~ msgstr "Đã hoàn tất"

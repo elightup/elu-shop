@@ -1,0 +1,26 @@
+.modal {
+	&--no-buttons .vex-dialog-buttons {
+		display: none;
+	}
+	&__buttons {
+		text-align: center;
+	}
+	&__button {
+		display: inline-block;
+		padding: 6px 12px;
+		border-radius: 3px;
+		background: #ccc;
+		transition: all .3s;
+		&:hover {
+			opacity: 0.85;
+			color: inherit;
+		}
+	}
+	&__button--primary {
+		background: #007bff;
+		color: #fff;
+		&:hover {
+			color: #fff;
+		}
+	}
+}

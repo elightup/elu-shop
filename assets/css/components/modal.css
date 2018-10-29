@@ -1,0 +1,29 @@
+.modal--no-buttons .vex-dialog-buttons {
+	display: none;
+}
+
+.modal__buttons {
+	text-align: center;
+}
+
+.modal__button {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 3px;
+	background: #ccc;
+	transition: all .3s;
+}
+
+.modal__button:hover {
+	opacity: 0.85;
+	color: inherit;
+}
+
+.modal__button--primary {
+	background: #007bff;
+	color: #fff;
+}
+
+.modal__button--primary:hover {
+	color: #fff;
+}
