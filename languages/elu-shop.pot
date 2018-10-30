@@ -25,13 +25,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: images\n"
 "X-Poedit-SearchPathExcluded-5: sass\n"
 
-#: src/Cart.php:38 templates/checkout.php:124
+#: src/Cart.php:38
 msgid "Buy now"
 msgstr ""
 
-#: src/Cart.php:43 src/Cart.php:67 templates/account/order.php:74
-#: templates/admin/order.php:103 templates/checkout.php:93
-#: templates/order.php:20
+#: src/Cart.php:43 src/Cart.php:67
 msgid "Amount"
 msgstr ""
 
@@ -44,6 +42,7 @@ msgid "Added to shopping cart"
 msgstr ""
 
 #: src/Order/AdminList.php:19 src/Order/AdminList.php:20
+#: templates/admin/orders.php:3
 msgid "Orders"
 msgstr ""
 
@@ -51,30 +50,32 @@ msgstr ""
 msgid "Number of lines per page"
 msgstr ""
 
-#: src/Order/Notification.php:45 src/Order/Table.php:188
-#: templates/admin/orders.php:3
+#: src/Order/Notification.php:45 src/Order/Table.php:189
+#: templates/account/order.php:16
 msgid "Order"
 msgstr ""
 
-#: src/Order/Table.php:28
-msgid "Finish"
+#: src/Order/Table.php:28 src/Order/Table.php:209 src/Order/Table.php:220
+#: templates/account/order.php:28 templates/account/orders.php:38
+#: templates/admin/order.php:26 templates/admin/order.php:37
+msgid "Completed"
 msgstr ""
 
-#: src/Order/Table.php:29 src/Order/Table.php:207 src/Order/Table.php:235
-#: templates/account/order.php:27 templates/account/orders.php:38
-#: templates/admin/order.php:21 templates/admin/order.php:43
-msgid "Processing"
+#: src/Order/Table.php:29 src/Order/Table.php:208 src/Order/Table.php:236
+#: templates/account/order.php:27 templates/account/orders.php:37
+#: templates/admin/order.php:25 templates/admin/order.php:44
+msgid "Pending"
 msgstr ""
 
-#: src/Order/Table.php:30 src/Order/Table.php:299
-msgid "Move to trash"
+#: src/Order/Table.php:30
+msgid "Trash"
 msgstr ""
 
 #: src/Order/Table.php:46
 msgid "Filter"
 msgstr ""
 
-#: src/Order/Table.php:50 src/Order/Table.php:311 src/Order/Table.php:327
+#: src/Order/Table.php:50 src/Order/Table.php:332
 msgid "Empty trash"
 msgstr ""
 
@@ -87,48 +88,59 @@ msgstr ""
 msgid "%1$s %2$d"
 msgstr ""
 
-#: src/Order/Table.php:161
-msgid "Date"
-msgstr ""
-
-#: src/Order/Table.php:162 templates/account/order.php:23
-#: templates/account/orders.php:27 templates/admin/order.php:17
+#: src/Order/Table.php:161 templates/account/order.php:23
+#: templates/account/orders.php:26 templates/admin/order.php:21
 msgid "Status"
 msgstr ""
 
+#: src/Order/Table.php:162 templates/admin/order.php:58
+msgid "Customer"
+msgstr ""
+
 #: src/Order/Table.php:163 src/Product/PostType.php:15
+#: templates/account/order.php:73 templates/admin/order.php:100
+#: templates/cart.php:19 templates/checkout.php:76
 msgid "Product"
 msgstr ""
 
-#: src/Order/Table.php:164 templates/admin/order.php:105
-#: templates/checkout.php:119
+#: src/Order/Table.php:164 templates/account/order.php:41
+#: templates/account/order.php:76 templates/account/orders.php:27
+#: templates/admin/order.php:54 templates/admin/order.php:103
+#: templates/cart.php:22 templates/checkout.php:78
 msgid "Total"
 msgstr ""
 
-#: src/Order/Table.php:208 src/Order/Table.php:219
-#: templates/account/order.php:28 templates/account/orders.php:39
-#: templates/admin/order.php:22 templates/admin/order.php:33
-msgid "Completed"
+#: src/Order/Table.php:165
+msgid "Date"
 msgstr ""
 
-#: src/Order/Table.php:209 templates/account/order.php:29
-#: templates/account/orders.php:40 templates/admin/order.php:23
+#: src/Order/Table.php:210 templates/account/order.php:29
+#: templates/account/orders.php:39 templates/admin/order.php:27
 msgid "Deleted"
 msgstr ""
 
-#: src/Order/Table.php:275
+#: src/Order/Table.php:280
 msgid "Detail"
 msgstr ""
 
-#: src/Order/Table.php:287 src/Order/Table.php:331
+#: src/Order/Table.php:292 src/Order/Table.php:336
 msgid "Restore"
 msgstr ""
 
-#: src/Order/Table.php:326 templates/order.php:23
+#: src/Order/Table.php:304
+msgid "Move to Trash"
+msgstr ""
+
+#: src/Order/Table.php:316
+msgid "Delete Permanently"
+msgstr ""
+
+#: src/Order/Table.php:331 templates/cart.php:23
 msgid "Delete"
 msgstr ""
 
 #: src/Product/PostType.php:14 src/Product/PostType.php:31
+#: templates/account/order.php:69 templates/admin/order.php:96
 msgid "Products"
 msgstr ""
 
@@ -318,7 +330,7 @@ msgid "Product Information"
 msgstr ""
 
 #: src/Product/PostType.php:110 templates/account/order.php:75
-#: templates/order.php:21
+#: templates/admin/order.php:102 templates/cart.php:21
 msgid "Price"
 msgstr ""
 
@@ -348,7 +360,7 @@ msgstr ""
 msgid "Payment"
 msgstr ""
 
-#: src/Settings.php:22
+#: src/Settings.php:22 templates/checkout.php:57
 msgid "Shipping"
 msgstr ""
 
@@ -404,61 +416,50 @@ msgstr ""
 msgid "Thank you for your order. Your order is currently being processed. Below is the order information. We will contact you as soon as possible!"
 msgstr ""
 
-#: templates/account/order.php:12
-msgid "Orders information"
+#: templates/account/order.php:12 templates/admin/order.php:12
+msgid "Order Details"
 msgstr ""
 
-#: templates/account/order.php:16
-msgid "Order item"
+#: templates/account/order.php:19 templates/account/orders.php:25
+#: templates/admin/order.php:17
+msgid "Time"
 msgstr ""
 
-#: templates/account/order.php:19 templates/admin/order.php:13
-msgid "Time Order"
-msgstr ""
-
-#: templates/account/order.php:37 templates/admin/order.php:80
-#: templates/checkout.php:66
-msgid "Form of transportation"
-msgstr ""
-
-#: templates/account/order.php:41 templates/account/order.php:76
-#: templates/account/orders.php:28 templates/admin/order.php:56
-msgid "Total money"
+#: templates/account/order.php:37 templates/admin/order.php:78
+msgid "Shipping Method"
 msgstr ""
 
 #: templates/account/order.php:47
-msgid "Customer information"
+msgid "Customer Details"
 msgstr ""
 
-#: templates/account/order.php:50
-msgid "Customer"
+#: templates/account/order.php:50 templates/admin/order.php:73
+#: templates/checkout.php:20
+msgid "Name"
 msgstr ""
 
-#: templates/account/order.php:54 templates/admin/order.php:76
-#: templates/checkout.php:28
+#: templates/account/order.php:54 templates/admin/order.php:74
+#: templates/checkout.php:24
 msgid "Email"
 msgstr ""
 
-#: templates/account/order.php:58 templates/admin/order.php:77
-#: templates/checkout.php:32
+#: templates/account/order.php:58 templates/admin/order.php:75
+#: templates/checkout.php:28
 msgid "Phone"
 msgstr ""
 
-#: templates/account/order.php:62 templates/admin/order.php:78
-#: templates/checkout.php:36
+#: templates/account/order.php:62 templates/admin/order.php:76
+#: templates/checkout.php:32
 msgid "Address"
 msgstr ""
 
-#: templates/account/order.php:69 templates/admin/order.php:98
-msgid "Products purchased"
-msgstr ""
-
-#: templates/account/order.php:73
-msgid "Products name"
+#: templates/account/order.php:74 templates/admin/order.php:101
+#: templates/cart.php:20 templates/checkout.php:77
+msgid "Quantity"
 msgstr ""
 
 #: templates/account/orders.php:1
-msgid "Order list"
+msgid "Order List"
 msgstr ""
 
 #: templates/account/orders.php:14
@@ -473,99 +474,74 @@ msgstr ""
 msgid "to start the purchase"
 msgstr ""
 
-#: templates/account/orders.php:25
-msgid "Order Code"
+#: templates/account/orders.php:24
+msgid "Order ID"
 msgstr ""
 
-#: templates/account/orders.php:26
-msgid "Time"
-msgstr ""
-
-#: templates/account/orders.php:29
+#: templates/account/orders.php:28
 msgid "Action"
 msgstr ""
 
-#: templates/account/orders.php:47
+#: templates/account/orders.php:46
 msgid "See details"
 msgstr ""
 
-#: templates/admin/order.php:8
-msgid "Order detail"
-msgstr ""
-
-#: templates/admin/order.php:10
+#: templates/admin/order.php:14
 msgid "Order Information"
 msgstr ""
 
-#: templates/admin/order.php:60
-msgid "Buyer"
+#: templates/admin/order.php:69
+msgid "Customer Information"
 msgstr ""
 
-#: templates/admin/order.php:71
-msgid "Buyer information"
+#: templates/admin/order.php:77
+msgid "Payment Method"
 msgstr ""
 
-#: templates/admin/order.php:75
-msgid "Name"
-msgstr ""
-
-#: templates/admin/order.php:79 templates/checkout.php:43
-msgid "Payments"
-msgstr ""
-
-#: templates/admin/order.php:81
+#: templates/admin/order.php:79
 msgid "Note"
-msgstr ""
-
-#: templates/admin/order.php:102 templates/checkout.php:92
-#: templates/order.php:19
-msgid "Product name"
-msgstr ""
-
-#: templates/admin/order.php:104
-msgid "price"
 msgstr ""
 
 #: templates/admin/orders.php:9
 msgid "Search order"
 msgstr ""
 
-#: templates/checkout.php:1 templates/order.php:1
+#: templates/cart.php:1 templates/checkout.php:1
 msgid "Updating the cart"
 msgstr ""
 
-#: templates/checkout.php:13 templates/order.php:11
+#: templates/cart.php:11 templates/checkout.php:10
 msgid "There are no products in your cart."
 msgstr ""
 
-#: templates/checkout.php:13 templates/order.php:11
-msgid "click here"
+#: templates/cart.php:11 templates/cart.php:52 templates/checkout.php:10
+msgid "Go to home"
 msgstr ""
 
-#: templates/checkout.php:13 templates/order.php:11 templates/order.php:55
-msgid "Back home"
+#: templates/cart.php:18 templates/checkout.php:75
+msgid "#"
 msgstr ""
 
-#: templates/checkout.php:18 templates/order.php:56
-msgid "Pay"
+#: templates/cart.php:49 templates/checkout.php:102
+msgid "Total:"
 msgstr ""
 
-#: templates/checkout.php:21
-msgid "Shipment Details"
+#: templates/cart.php:53
+msgid "Checkout"
 msgstr ""
 
-#: templates/checkout.php:24
-msgid "Name the recipient"
+#: templates/checkout.php:17
+msgid "Your Details"
 msgstr ""
 
-#: templates/checkout.php:91 templates/order.php:18
-msgid "STT"
+#: templates/checkout.php:39
+msgid "Payments"
 msgstr ""
 
-#: templates/checkout.php:94 templates/order.php:22
-msgid "Into money"
+#: templates/checkout.php:104
+msgid "Order note"
 msgstr ""
 
-#: templates/checkout.php:121
-msgid "Note when ordering"
+#: templates/checkout.php:107
+msgid "Place order"
 msgstr ""

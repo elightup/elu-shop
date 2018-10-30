@@ -13,7 +13,7 @@ class Checkout {
 	}
 
 	public function enqueue() {
-		if ( ( ! $this->is_page_order() ) && ( ! $this->is_page_checkout() ) ) {
+		if ( ( ! $this->is_cart_page() ) && ( ! $this->is_checkout_page() ) ) {
 			return;
 		}
 		wp_enqueue_style( 'checkout', ELU_SHOP_URL . 'assets/css/checkout.css' );
@@ -23,20 +23,19 @@ class Checkout {
 			'CheckoutParams',
 			[
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'budget'  => intval( get_user_meta( get_current_user_id(), 'budget', true ) ),
 			]
 		);
 	}
 
 	public function filter_content( $content ) {
-		if ( ! $this->is_page_order() && ! $this->is_page_checkout() ) {
+		if ( ! $this->is_cart_page() && ! $this->is_checkout_page() ) {
 			return $content;
 		}
 		ob_start();
-		if ( $this->is_page_order() ) {
-			TemplateLoader::instance()->get_template_part( 'order' );
+		if ( $this->is_cart_page() ) {
+			TemplateLoader::instance()->get_template_part( 'cart' );
 		}
-		if ( $this->is_page_checkout() ) {
+		if ( $this->is_checkout_page() ) {
 			TemplateLoader::instance()->get_template_part( 'checkout' );
 		}
 		return ob_get_clean();
@@ -54,8 +53,8 @@ class Checkout {
 
 	public function place_checkout() {
 		$data = isset( $_POST['cart'] ) ? $_POST['cart'] : [];
-		$note = isset( $_POST['note'] ) ? $_POST['note'] : '';
 		$info = isset( $_POST['info'] ) ? $_POST['info'] : '';
+		$note = filter_input( INPUT_POST, 'note', FILTER_SANITIZE_STRING );
 		$data = wp_unslash( $data );
 		$data = json_decode( $data, true );
 
@@ -69,24 +68,15 @@ class Checkout {
 
 		global $wpdb;
 		$wpdb->insert(
-			"{$wpdb->prefix}orders",
+			$wpdb->orders,
 			[
-				'date'   => date( 'Y-m-d H:i:s' ),
+				'date'   => current_time( 'mysql' ),
 				'status' => 'pending',
 				'user'   => get_current_user_id(),
 				'amount' => $amount,
 				'note'   => $note,
 				'info'   => json_encode( $info ),
 				'data'   => json_encode( $data, JSON_UNESCAPED_UNICODE ),
-			],
-			[
-				'%s',
-				'%s',
-				'%d',
-				'%d',
-				'%s',
-				'%s',
-				'%s',
 			]
 		);
 		$url = add_query_arg(
@@ -95,15 +85,15 @@ class Checkout {
 				'id'   => $wpdb->insert_id,
 				'type' => 'checkout',
 			],
-			get_permalink( ps_setting( 'invoice_details' ) )
+			get_permalink( ps_setting( 'confirmation_page' ) )
 		);
 		wp_send_json_success( $url );
 	}
 
-	protected function is_page_order() {
+	protected function is_cart_page() {
 		return is_page() && get_the_ID() == ps_setting( 'cart_page' );
 	}
-	protected function is_page_checkout() {
+	protected function is_checkout_page() {
 		return is_page() && get_the_ID() == ps_setting( 'checkout_page' );
 	}
 }

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ELU Shop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 12:32+0700\n"
-"PO-Revision-Date: 2018-10-30 12:33+0700\n"
+"POT-Creation-Date: 2018-10-30 15:16+0700\n"
+"PO-Revision-Date: 2018-10-30 15:16+0700\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi\n"
@@ -26,13 +26,11 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: images\n"
 "X-Poedit-SearchPathExcluded-5: sass\n"
 
-#: src/Cart.php:38 templates/checkout.php:124
+#: src/Cart.php:38
 msgid "Buy now"
 msgstr "Mua ngay"
 
-#: src/Cart.php:43 src/Cart.php:67 templates/account/order.php:74
-#: templates/admin/order.php:103 templates/checkout.php:93
-#: templates/order.php:20
+#: src/Cart.php:43 src/Cart.php:67
 msgid "Amount"
 msgstr "Số lượng"
 
@@ -45,37 +43,40 @@ msgid "Added to shopping cart"
 msgstr "Đã thêm vào giỏ hàng"
 
 #: src/Order/AdminList.php:19 src/Order/AdminList.php:20
+#: templates/admin/orders.php:3
 msgid "Orders"
-msgstr "Đơn đặt hàng"
+msgstr "Đơn hàng"
 
 #: src/Order/AdminList.php:36
 msgid "Number of lines per page"
 msgstr "Số dòng trên mỗi trang"
 
 #: src/Order/Notification.php:45 src/Order/Table.php:188
-#: templates/admin/orders.php:3
+#: templates/account/order.php:16
 msgid "Order"
 msgstr "Đơn hàng"
 
-#: src/Order/Table.php:28
-msgid "Finish"
-msgstr "Hoàn thành"
+#: src/Order/Table.php:28 src/Order/Table.php:208 src/Order/Table.php:219
+#: templates/account/order.php:28 templates/account/orders.php:38
+#: templates/admin/order.php:26 templates/admin/order.php:37
+msgid "Completed"
+msgstr "Đã hoàn thành"
 
 #: src/Order/Table.php:29 src/Order/Table.php:207 src/Order/Table.php:235
-#: templates/account/order.php:27 templates/account/orders.php:38
-#: templates/admin/order.php:21 templates/admin/order.php:43
-msgid "Processing"
-msgstr "Đang sử lý"
+#: templates/account/order.php:27 templates/account/orders.php:37
+#: templates/admin/order.php:25 templates/admin/order.php:44
+msgid "Pending"
+msgstr "Đang xử lý"
 
-#: src/Order/Table.php:30 src/Order/Table.php:299
-msgid "Move to trash"
-msgstr "Di chuyển thùng rác"
+#: src/Order/Table.php:30
+msgid "Trash"
+msgstr "Thùng rác"
 
 #: src/Order/Table.php:46
 msgid "Filter"
 msgstr "Bộ lọc"
 
-#: src/Order/Table.php:50 src/Order/Table.php:311 src/Order/Table.php:327
+#: src/Order/Table.php:50 src/Order/Table.php:326
 msgid "Empty trash"
 msgstr "Dọn sạch thùng rác"
 
@@ -93,43 +94,50 @@ msgid "Date"
 msgstr "Ngày"
 
 #: src/Order/Table.php:162 templates/account/order.php:23
-#: templates/account/orders.php:27 templates/admin/order.php:17
+#: templates/account/orders.php:26 templates/admin/order.php:21
 msgid "Status"
 msgstr "Trạng thái"
 
 #: src/Order/Table.php:163 src/Product/PostType.php:15
+#: templates/account/order.php:73 templates/admin/order.php:100
+#: templates/cart.php:19 templates/checkout.php:76
 msgid "Product"
 msgstr "Sản phẩm"
 
-#: src/Order/Table.php:164 templates/admin/order.php:105
-#: templates/checkout.php:119
+#: src/Order/Table.php:164 templates/account/order.php:41
+#: templates/account/order.php:76 templates/account/orders.php:27
+#: templates/admin/order.php:54 templates/admin/order.php:103
+#: templates/cart.php:22 templates/checkout.php:78
 msgid "Total"
 msgstr "Tổng"
 
-#: src/Order/Table.php:208 src/Order/Table.php:219
-#: templates/account/order.php:28 templates/account/orders.php:39
-#: templates/admin/order.php:22 templates/admin/order.php:33
-msgid "Completed"
-msgstr "Đã hoàn thành"
-
 #: src/Order/Table.php:209 templates/account/order.php:29
-#: templates/account/orders.php:40 templates/admin/order.php:23
+#: templates/account/orders.php:39 templates/admin/order.php:27
 msgid "Deleted"
 msgstr "Đã xóa"
 
-#: src/Order/Table.php:275
+#: src/Order/Table.php:274
 msgid "Detail"
 msgstr "Chi tiết"
 
-#: src/Order/Table.php:287 src/Order/Table.php:331
+#: src/Order/Table.php:286 src/Order/Table.php:330
 msgid "Restore"
 msgstr "Khôi phục"
 
-#: src/Order/Table.php:326 templates/order.php:23
+#: src/Order/Table.php:298
+msgid "Move to Trash"
+msgstr "Xóa tạm"
+
+#: src/Order/Table.php:310
+msgid "Delete Permanently"
+msgstr "Xóa vĩnh viễn"
+
+#: src/Order/Table.php:325 templates/cart.php:23
 msgid "Delete"
 msgstr "Xóa"
 
 #: src/Product/PostType.php:14 src/Product/PostType.php:31
+#: templates/account/order.php:69 templates/admin/order.php:96
 msgid "Products"
 msgstr "Sản phẩm"
 
@@ -319,7 +327,7 @@ msgid "Product Information"
 msgstr "Thông tin sản phẩm"
 
 #: src/Product/PostType.php:110 templates/account/order.php:75
-#: templates/order.php:21
+#: templates/admin/order.php:102 templates/cart.php:21
 msgid "Price"
 msgstr "Giá"
 
@@ -349,7 +357,7 @@ msgstr "Chung"
 msgid "Payment"
 msgstr "Thanh toán"
 
-#: src/Settings.php:22
+#: src/Settings.php:22 templates/checkout.php:57
 msgid "Shipping"
 msgstr "Vận chuyển"
 
@@ -410,62 +418,51 @@ msgstr ""
 "Dưới đây là thông tin đơn đặt hàng. Chúng tôi sẽ liên hệ với bạn ngay khi có "
 "thể!"
 
-#: templates/account/order.php:12
-msgid "Orders information"
-msgstr "Thông tin đơn đặt hàng"
+#: templates/account/order.php:12 templates/admin/order.php:12
+msgid "Order Details"
+msgstr "Chi tiết đơn hàng"
 
-#: templates/account/order.php:16
-msgid "Order item"
-msgstr "Sản phẩm"
+#: templates/account/order.php:19 templates/account/orders.php:25
+#: templates/admin/order.php:17
+msgid "Time"
+msgstr "Thời gian"
 
-#: templates/account/order.php:19 templates/admin/order.php:13
-msgid "Time Order"
-msgstr "Giờ đặt hàng"
-
-#: templates/account/order.php:37 templates/admin/order.php:80
-#: templates/checkout.php:66
-msgid "Form of transportation"
+#: templates/account/order.php:37 templates/admin/order.php:78
+msgid "Shipping Method"
 msgstr "Hình thức vận chuyển"
 
-#: templates/account/order.php:41 templates/account/order.php:76
-#: templates/account/orders.php:28 templates/admin/order.php:56
-msgid "Total money"
-msgstr "Tổng tiền"
-
 #: templates/account/order.php:47
-msgid "Customer information"
+msgid "Customer Details"
 msgstr "Thông tin khách hàng"
 
-#: templates/account/order.php:50
-msgid "Customer"
-msgstr "Khách hàng"
+#: templates/account/order.php:50 templates/admin/order.php:73
+#: templates/checkout.php:20
+msgid "Name"
+msgstr "Họ tên"
 
-#: templates/account/order.php:54 templates/admin/order.php:76
-#: templates/checkout.php:28
+#: templates/account/order.php:54 templates/admin/order.php:74
+#: templates/checkout.php:24
 msgid "Email"
 msgstr "Email"
 
-#: templates/account/order.php:58 templates/admin/order.php:77
-#: templates/checkout.php:32
+#: templates/account/order.php:58 templates/admin/order.php:75
+#: templates/checkout.php:28
 msgid "Phone"
 msgstr "Điện thoại"
 
-#: templates/account/order.php:62 templates/admin/order.php:78
-#: templates/checkout.php:36
+#: templates/account/order.php:62 templates/admin/order.php:76
+#: templates/checkout.php:32
 msgid "Address"
 msgstr "Địa chỉ"
 
-#: templates/account/order.php:69 templates/admin/order.php:98
-msgid "Products purchased"
-msgstr "Sản phẩm đã mua"
-
-#: templates/account/order.php:73
-msgid "Products name"
-msgstr "Tên sản phẩm"
+#: templates/account/order.php:74 templates/admin/order.php:101
+#: templates/cart.php:20 templates/checkout.php:77
+msgid "Quantity"
+msgstr "Số lượng"
 
 #: templates/account/orders.php:1
-msgid "Order list"
-msgstr "Danh sách đơn đặt hàng"
+msgid "Order List"
+msgstr "Danh sách đơn hàng"
 
 #: templates/account/orders.php:14
 msgid "You have no orders."
@@ -479,102 +476,159 @@ msgstr "Click ngay"
 msgid "to start the purchase"
 msgstr "để bắt đầu mua hàng"
 
-#: templates/account/orders.php:25
-msgid "Order Code"
-msgstr "Mã đặt hàng"
+#: templates/account/orders.php:24
+msgid "Order ID"
+msgstr "Mã đơn hàng"
 
-#: templates/account/orders.php:26
-msgid "Time"
-msgstr "Thời gian"
-
-#: templates/account/orders.php:29
+#: templates/account/orders.php:28
 msgid "Action"
 msgstr "Hoạt động"
 
-#: templates/account/orders.php:47
+#: templates/account/orders.php:46
 msgid "See details"
 msgstr "Xem chi tiết"
 
-#: templates/admin/order.php:8
-msgid "Order detail"
-msgstr "Chi tiết đặt hàng"
-
-#: templates/admin/order.php:10
+#: templates/admin/order.php:14
 msgid "Order Information"
 msgstr "Thông tin đặt hàng"
 
-#: templates/admin/order.php:60
-msgid "Buyer"
-msgstr "Người mua"
+#: templates/admin/order.php:58
+msgid "Customer"
+msgstr "Khách hàng"
 
-#: templates/admin/order.php:71
-msgid "Buyer information"
-msgstr "Thông tin người mua"
+#: templates/admin/order.php:69
+msgid "Customer Information"
+msgstr "Thông tin khách hàng"
 
-#: templates/admin/order.php:75
-msgid "Name"
-msgstr "Họ tên"
+#: templates/admin/order.php:77
+msgid "Payment Method"
+msgstr "Phương thức thanh toán"
 
-#: templates/admin/order.php:79 templates/checkout.php:43
-msgid "Payments"
-msgstr "Thanh toán"
-
-#: templates/admin/order.php:81
+#: templates/admin/order.php:79
 msgid "Note"
 msgstr "Ghi chú"
-
-#: templates/admin/order.php:102 templates/checkout.php:92
-#: templates/order.php:19
-msgid "Product name"
-msgstr "Tên sản phẩm"
-
-#: templates/admin/order.php:104
-msgid "price"
-msgstr "giá"
 
 #: templates/admin/orders.php:9
 msgid "Search order"
 msgstr "Thứ tự tìm kiếm"
 
-#: templates/checkout.php:1 templates/order.php:1
+#: templates/cart.php:1 templates/checkout.php:1
 msgid "Updating the cart"
 msgstr "Cập nhật giỏ hàng"
 
-#: templates/checkout.php:13 templates/order.php:11
+#: templates/cart.php:11 templates/checkout.php:10
 msgid "There are no products in your cart."
 msgstr "Không có sản phẩm trong giỏ hàng của bạn."
 
-#: templates/checkout.php:13 templates/order.php:11
-msgid "click here"
-msgstr "click ngay"
+#: templates/cart.php:11 templates/cart.php:52 templates/checkout.php:10
+msgid "Go to home"
+msgstr "Quay lại trang chủ"
 
-#: templates/checkout.php:13 templates/order.php:11 templates/order.php:55
-msgid "Back home"
-msgstr "Quay về trang chủ"
+#: templates/cart.php:18 templates/checkout.php:75
+msgid "#"
+msgstr "#"
 
-#: templates/checkout.php:18 templates/order.php:56
-msgid "Pay"
+#: templates/cart.php:49 templates/checkout.php:102
+msgid "Total:"
+msgstr "Tổng:"
+
+#: templates/cart.php:53
+msgid "Checkout"
 msgstr "Thanh toán"
 
-#: templates/checkout.php:21
-msgid "Shipment Details"
-msgstr "Thông tin giao hàng"
+#: templates/checkout.php:17
+msgid "Your Details"
+msgstr "Thông tin của bạn"
 
-#: templates/checkout.php:24
-msgid "Name the recipient"
-msgstr "Đặt tên người nhận"
+#: templates/checkout.php:39
+msgid "Payments"
+msgstr "Thanh toán"
 
-#: templates/checkout.php:91 templates/order.php:18
-msgid "STT"
-msgstr "STT"
+#: templates/checkout.php:104
+msgid "Order note"
+msgstr "Ghi chú khi đặt hàng"
 
-#: templates/checkout.php:94 templates/order.php:22
-msgid "Into money"
-msgstr "Thành tiền"
+#: templates/checkout.php:107
+msgid "Place order"
+msgstr "Đặt hàng"
 
-#: templates/checkout.php:121
-msgid "Note when ordering"
-msgstr "Lưu ý khi đặt hàng"
+#~ msgid "Complete"
+#~ msgstr "Hoàn thành"
+
+#~ msgid "completed"
+#~ msgstr "hoàn thành"
+
+#~ msgid "Closed"
+#~ msgstr "Hoàn thành"
+
+#~ msgid "Finish"
+#~ msgstr "Hoàn thành"
+
+#~ msgid "Processing"
+#~ msgstr "Đang xử lý"
+
+#~ msgid "Order Code"
+#~ msgstr "Mã đặt hàng"
+
+#~ msgid "Total money"
+#~ msgstr "Tổng tiền"
+
+#~ msgid "Order detail"
+#~ msgstr "Chi tiết đặt hàng"
+
+#~ msgid "Time Order"
+#~ msgstr "Giờ đặt hàng"
+
+#~ msgid "Buyer"
+#~ msgstr "Người mua"
+
+#~ msgid "Buyer information"
+#~ msgstr "Thông tin người mua"
+
+#~ msgid "Form of transportation"
+#~ msgstr "Hình thức vận chuyển"
+
+#~ msgid "Products purchased"
+#~ msgstr "Sản phẩm đã mua"
+
+#~ msgid "Product name"
+#~ msgstr "Tên sản phẩm"
+
+#~ msgid "price"
+#~ msgstr "giá"
+
+#~ msgid "Orders information"
+#~ msgstr "Thông tin đơn đặt hàng"
+
+#~ msgid "Order item"
+#~ msgstr "Sản phẩm"
+
+#~ msgid "Products name"
+#~ msgstr "Tên sản phẩm"
+
+#~ msgid "Pay"
+#~ msgstr "Thanh toán"
+
+#~ msgid "Note when ordering"
+#~ msgstr "Lưu ý khi đặt hàng"
+
+#~ msgid "click here"
+#~ msgstr "click ngay"
+
+#~ msgid "Back home"
+#~ msgstr "Quay về trang chủ"
+
+#~ msgid "Shipment Details"
+#~ msgstr "Thông tin giao hàng"
+
+#~ msgid "Name the recipient"
+#~ msgstr "Đặt tên người nhận"
+
+#~ msgid "STT"
+#~ msgstr "STT"
+
+#~ msgid "Into money"
+#~ msgstr "Thành tiền"
 
 #~ msgctxt "add new on admin bar"
 #~ msgid "Product"

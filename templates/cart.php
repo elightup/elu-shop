@@ -1,25 +1,25 @@
 <div id="cart"><?= esc_attr__( 'Updating the cart', 'elu-shop' );?></div>
 
-<?php $symbol = ps_setting( 'currency_symbol' ); ?>
+<?php $symbol = ps_setting( 'currency' ); ?>
 <script type="text/html" id="tmpl-cart">
 	<#
 	let total = 0;
 	let total_vnd = 0;
-	let stt = 0;
+	let id = 0;
 	if ( data.products.length == 0 ) {
 		#>
-		<div class="alert"><?= __( 'There are no products in your cart.', 'elu-shop' );?> <a href="<?php echo get_option('siteurl'); ?>"><?= __( 'click here', 'elu-shop' );?> </a> <?= __( 'Back home', 'elu-shop' );?></div>
+		<div class="alert"><?= __( 'There are no products in your cart.', 'elu-shop' );?> <a href="<?= home_url( '/' ); ?>"><?php esc_html_e( 'Go to home', 'elu-shop' );?></a></div>
 		<#
 	} else {
 		#>
 		<table class="cart cart-checkout table table-bordered">
 			<thead class="thead-dark">
 			    <tr>
-			      <th scope="col"><?= __( 'STT', 'elu-shop' );?></th>
-			      <th scope="col"><?= __( 'Product name', 'elu-shop' );?></th>
-			      <th scope="col"><?= __( 'Amount', 'elu-shop' );?></th>
+			      <th scope="col"><?= __( '#', 'elu-shop' );?></th>
+			      <th scope="col"><?= __( 'Product', 'elu-shop' );?></th>
+			      <th scope="col"><?= __( 'Quantity', 'elu-shop' );?></th>
 			      <th scope="col"><?= __( 'Price', 'elu-shop' );?></th>
-			      <th scope="col"><?= __( 'Into money', 'elu-shop' );?></th>
+			      <th scope="col"><?= __( 'Total', 'elu-shop' );?></th>
 			      <th scope="col"><?= __( 'Delete', 'elu-shop' );?></th>
 			    </tr>
 		  	</thead>
@@ -27,14 +27,11 @@
 			<#
 			data.products.forEach( product => {
 				var subtotal = product.price * product.quantity;
-				var subtotal_vnd = product.price_vnd * product.quantity;
 				total += subtotal;
-				total_vnd += subtotal_vnd;
-				stt += 1;
-				subtotal_vnd = parseFloat( subtotal_vnd ).format(0, 3, '.', ',');
+				id += 1;
 				#>
 				<tr>
-					<td class="cart__stt">{{ stt }}</td>
+					<td class="cart__stt">{{ id }}</td>
 
 					<td class="cart__title">
 						<a href="{{ product.link }}"><img src="{{product.url}}" alt="{{product.title}}" />{{ product.title }}</a>
@@ -49,12 +46,11 @@
 			#>
 			</tbody>
 		</table>
-		<div class="total-pay-product text-right">Tổng: <span class="total__number">{{ parseFloat( total ).format(0, 3, '.', ',') }} <?= $symbol; ?></span> 
+		<div class="total-pay-product text-right"><?php esc_html_e( 'Total:', 'elu-shop' ) ?> <span class="total__number">{{ parseFloat( total ).format(0, 3, '.', ',') }} <?= $symbol; ?></span>
 				</div>
-		<div class="submit-cart-shop text-right"> 
-			<a class="btn btn-primary back-home" href="<?php echo get_option('siteurl'); ?>"> <?= __( 'Back home', 'elu-shop' );?></a>
-			<button class="place-order btn btn-success"><?= __( 'Pay', 'elu-shop' );?></button>
-			
+		<div class="submit-cart-shop text-right">
+			<a class="btn btn-primary back-home" href="<?= home_url( '/' ); ?>"><?= __( 'Go to home', 'elu-shop' );?></a>
+			<button class="place-order btn btn-success"><?= __( 'Checkout', 'elu-shop' );?></button>
 		</div>
 		<#
 	}

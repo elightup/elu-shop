@@ -25,9 +25,9 @@ class Table extends \WP_List_Table {
 		$links['all'] = "<a href='{$this->base_url}'$class>" . sprintf( 'All <span class="count">(%s)</span>', $this->get_total_items() ) . '</a>';
 
 		$statuses = [
-			'closed'  => __( 'Finish', 'elu-shop' ),
-			'pending' => __( 'Processing', 'elu-shop' ),
-			'trash'   => __( 'Move to trash', 'elu-shop' ),
+			'completed'  => __( 'Completed', 'elu-shop' ),
+			'pending' => __( 'Pending', 'elu-shop' ),
+			'trash'   => __( 'Trash', 'elu-shop' ),
 		];
 		foreach ( $statuses as $key => $label ) {
 			$class         = $key === $status ? ' class="current"' : '';
@@ -158,10 +158,11 @@ class Table extends \WP_List_Table {
 		$columns = [
 			'cb'       => '<input type="checkbox">',
 			'id'       => 'ID',
-			'date'     => __( 'Date', 'elu-shop' ),
 			'status'   => __( 'Status', 'elu-shop' ),
+			'customer' => __( 'Customer', 'elu-shop' ),
 			'products' => __( 'Product', 'elu-shop' ),
 			'amount'   => __( 'Total', 'elu-shop' ),
+			'date'     => __( 'Date', 'elu-shop' ),
 		];
 
 		return $columns;
@@ -204,8 +205,8 @@ class Table extends \WP_List_Table {
 
 	public function column_status( $item ) {
 		$statuses = [
-			'pending' => [ 'badge', __( 'Processing', 'elu-shop' ) ],
-			'closed'  => [ 'badge badge--success', __( 'Completed', 'elu-shop' ) ],
+			'pending' => [ 'badge', __( 'Pending', 'elu-shop' ) ],
+			'completed'  => [ 'badge badge--success', __( 'Completed', 'elu-shop' ) ],
 			'trash'   => [ 'badge badge--danger', __( 'Deleted', 'elu-shop' ) ],
 		];
 		$status   = $statuses[ $item['status'] ];
@@ -230,9 +231,9 @@ class Table extends \WP_List_Table {
 				)
 			);
 		}
-		if ( 'closed' === $item['status'] ) {
+		if ( 'completed' === $item['status'] ) {
 			printf(
-				'<a href="%s" class="button">' . __( 'Processing', 'elu-shop' ) . ' </a>',
+				'<a href="%s" class="button">' . __( 'Pending', 'elu-shop' ) . ' </a>',
 				add_query_arg(
 					[
 						'action'   => 'open',
@@ -258,8 +259,13 @@ class Table extends \WP_List_Table {
 		echo implode( '<br>', $output );
 	}
 
+	public function column_customer( $item ) {
+		$info = json_decode( $item['info'] );
+		echo esc_html( $info->name );
+	}
+
 	public function column_amount( $item ) {
-		echo number_format( $item['amount'], 0, '', '.' ) . ' ' . ps_setting( 'currency_symbol' );
+		echo number_format_i18n( $item['amount'], 0 ) . ' ' . ps_setting( 'currency' );
 	}
 
 	public function column_payments( $item ) {
@@ -268,11 +274,10 @@ class Table extends \WP_List_Table {
 		echo $payments[0]['pay'];
 	}
 
-
 	protected function get_row_actions( $item ) {
 		$actions = [
 			'view' => sprintf(
-				'<a href="%s">' . __( 'Detail', 'elu-shop' ) . '</a>',
+				'<a href="%s">' . esc_html__( 'Detail', 'elu-shop' ) . '</a>',
 				add_query_arg(
 					[
 						'action' => 'view',
@@ -284,7 +289,7 @@ class Table extends \WP_List_Table {
 		];
 		if ( 'trash' === $item['status'] ) {
 			$actions['untrash'] = sprintf(
-				'<a href="%s">' . __( 'Restore', 'elu-shop' ) . '</a>',
+				'<a href="%s">' . esc_html__( 'Restore', 'elu-shop' ) . '</a>',
 				add_query_arg(
 					[
 						'action'   => 'untrash',
@@ -296,7 +301,7 @@ class Table extends \WP_List_Table {
 			);
 		} else {
 			$actions['trash'] = sprintf(
-				'<a href="%s">' . __( 'Move to trash', 'elu-shop' ) . '</a>',
+				'<a href="%s">' . esc_html__( 'Move to Trash', 'elu-shop' ) . '</a>',
 				add_query_arg(
 					[
 						'action'   => 'trash',
@@ -308,7 +313,7 @@ class Table extends \WP_List_Table {
 			);
 		}
 		$actions['delete'] = sprintf(
-			'<a href="%s">' . __( 'Empty trash', 'elu-shop' ) . '</a>',
+			'<a href="%s">' . esc_html__( 'Delete Permanently', 'elu-shop' ) . '</a>',
 			add_query_arg(
 				[
 					'action'   => 'delete',
@@ -365,7 +370,7 @@ class Table extends \WP_List_Table {
 		if ( 'close' === $this->current_action() ) {
 			check_admin_referer( 'ps_close_order' );
 
-			$this->update_item_status( $_GET['id'], 'closed' );
+			$this->update_item_status( $_GET['id'], 'completed' );
 			return;
 		}
 		if ( 'delete' === $this->current_action() ) {

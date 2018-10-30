@@ -1,25 +1,29 @@
 <?php
+$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT );
+if ( ! $id ) {
+	return;
+}
+
 global $wpdb;
-$id   = intval( $_GET['id'] );
 $item = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->orders WHERE `id`=%d", $id ) );
-$infos = json_decode( $item->info, true );
+$info = json_decode( $item->info, true );
 ?>
 <div class="wrap">
-	<h1><?= __( 'Order detail', 'elu-shop' ) . ' #' . $id; ?></h1>
+	<h1><?php esc_html_e( 'Order Details', 'elu-shop' ) . ' #' . esc_html( $id ); ?></h1>
 	<div class="info-order">
-		<h3><?= __( 'Order Information', 'elu-shop' ); ?></h3>
+		<h3><?php esc_html_e( 'Order Information', 'elu-shop' ); ?></h3>
 		<table class="widefat">
 			<tr>
-				<td><?= __( 'Time Order', 'elu-shop' ); ?>:</td>
-				<td><?= $item->date; ?></td>
+				<td><?php esc_html_e( 'Time', 'elu-shop' ); ?></td>
+				<td><?= esc_html( $item->date ); ?></td>
 			</tr>
 			<tr>
-				<td><?= __( 'Status', 'elu-shop' ); ?>:</td>
+				<td><?php esc_html_e( 'Status', 'elu-shop' ); ?></td>
 				<td>
 					<?php
 					$statuses = [
-						'pending' => [ 'badge', __( 'Processing', 'elu-shop' ) ],
-						'closed'  => [ 'badge badge--success', __( 'Completed', 'elu-shop' ) ],
+						'pending' => [ 'badge', __( 'Pending', 'elu-shop' ) ],
+						'completed'  => [ 'badge badge--success', __( 'Completed', 'elu-shop' ) ],
 						'trash'   => [ 'badge badge--danger', __( 'Deleted', 'elu-shop' ) ],
 					];
 					$status   	= $statuses[ $item->status ];
@@ -27,25 +31,19 @@ $infos = json_decode( $item->info, true );
 					$payments 	= $item->info;
 					$payments   = json_decode( $payments, true );
 
-					printf( '<span class="%s">%s</span>', $status[0], $status[1] );
+					printf( '<span class="%s">%s</span>', esc_attr( $status[0] ), esc_html( $status[1] ) );
 
 					if ( 'pending' === $item->status ) {
-						printf( '<a href="%s" class="button">' . __( 'Completed', 'elu-shop' ) .'</a>', add_query_arg( [
+						printf( '<a href="%s" class="button">' . esc_html__( 'Completed', 'elu-shop' ) .'</a>', add_query_arg( [
 							'action'   => 'close',
 							'id'       => $id,
-							'user'     => $user->ID,
-							'amount'   => number_format( $item->amount, 0, '', '.' ),
-							'payments' => $payments[0]['pay'],
 							'_wpnonce' => wp_create_nonce( 'ps_close_order' ),
 						], admin_url( 'edit.php?page=orders&post_type=product' ) ) );
 					}
-					if ( 'closed' === $item->status ) {
-						printf( '<a href="%s" class="button">' . __( 'Processing', 'elu-shop' ) . '</a>', add_query_arg( [
+					if ( 'completed' === $item->status ) {
+						printf( '<a href="%s" class="button">' . esc_html__( 'Pending', 'elu-shop' ) . '</a>', add_query_arg( [
 							'action'   => 'open',
 							'id'       => $id,
-							'user'     => $user->ID,
-							'amount'   => number_format( $item->amount, 0, '', '.' ),
-							'payments' => $payments[0]['pay'],
 							'_wpnonce' => wp_create_nonce( 'ps_open_order' ),
 						], admin_url( 'edit.php?page=orders&post_type=product' ) ) );
 					}
@@ -53,56 +51,56 @@ $infos = json_decode( $item->info, true );
 				</td>
 			</tr>
 			<tr>
-				<td><?= __( 'Total money', 'elu-shop' ) ?>:</td>
-				<td><?= number_format( $item->amount, 0, '', '.' ); ?> <?= ps_setting( 'currency_symbol' ); ?></td>
+				<td><?php esc_html_e( 'Total', 'elu-shop' ) ?></td>
+				<td><?= number_format_i18n( $item->amount, 0 ); ?> <?= esc_html( ps_setting( 'currency' ) ); ?></td>
 			</tr>
 			<tr>
-				<td><?= __( 'Buyer', 'elu-shop' ) ?>:</td>
+				<td><?php esc_html_e( 'Customer', 'elu-shop' ) ?></td>
 				<td>
 					<?php
 					$user = get_userdata( $item->user );
-					echo $user->display_name;
+					echo esc_html( $user->display_name );
 					?>
 				</td>
 			</tr>
 		</table>
 	</div>
 	<div class="info-user">
-		<h3><?= __( 'Buyer information', 'elu-shop' ) ?>:</h3>
+		<h3><?php esc_html_e( 'Customer Information', 'elu-shop' ) ?></h3>
 		<table class="widefat">
 			<thead>
 			<tr>
-				<td><?= __( 'Name', 'elu-shop' ) ?></td>
-				<td><?= __( 'Email', 'elu-shop' ) ?></td>
-				<td><?= __( 'Phone', 'elu-shop' ) ?></td>
-				<td><?= __( 'Address', 'elu-shop' ) ?></td>
-				<td><?= __( 'Payments', 'elu-shop' ) ?></td>
-				<td><?= __( 'Form of transportation', 'elu-shop' ) ?></td>
-				<td><?= __( 'Note', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Name', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Email', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Phone', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Address', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Payment Method', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Shipping Method', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Note', 'elu-shop' ) ?></td>
 			</tr>
 			</thead>
 			<tbody>
 			<tr>
-				<td><?= $infos['name']; ?></td>
-				<td><?= $infos['email']; ?></td>
-				<td><?= $infos['phone']; ?></td>
-				<td><?= $infos['address']; ?></td>
-				<td><?= $infos['pay']; ?></td>
-				<td><?= $infos['delivery']; ?></td>
-				<td><?= $item->note; ?></td>
+				<td><?= esc_html( $info['name'] ); ?></td>
+				<td><?= esc_html( $info['email'] ); ?></td>
+				<td><?= esc_html( $info['phone'] ); ?></td>
+				<td><?= esc_html( $info['address'] ); ?></td>
+				<td><?= esc_html( $info['payment_method'] ); ?></td>
+				<td><?= esc_html( $info['shipping_method'] ); ?></td>
+				<td><?= esc_html( $item->note ); ?></td>
 			</tr>
 			</tbody>
-		</table> 
+		</table>
 	</div>
 	<div class="info-product">
-		<h3><?= __( 'Products purchased', 'elu-shop' ) ?>:</h3>
+		<h3><?php esc_html_e( 'Products', 'elu-shop' ) ?></h3>
 		<table class="widefat">
 			<thead>
 			<tr>
-				<th><?= __( 'Product name', 'elu-shop' ) ?></th>
-				<th><?= __( 'Amount', 'elu-shop' ) ?></th>
-				<th><?= __( 'price', 'elu-shop' ) ?></th>
-				<th><?= __( 'Total', 'elu-shop' ) ?></th>
+				<th><?php esc_html_e( 'Product', 'elu-shop' ) ?></th>
+				<th><?php esc_html_e( 'Quantity', 'elu-shop' ) ?></th>
+				<th><?php esc_html_e( 'Price', 'elu-shop' ) ?></th>
+				<th><?php esc_html_e( 'Total', 'elu-shop' ) ?></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -111,10 +109,10 @@ $infos = json_decode( $item->info, true );
 			foreach ( $products as $product ) :
 				?>
 				<tr>
-					<td><?= $product['title']; ?></td>
-					<td><?= $product['quantity']; ?></td>
-					<td><?= number_format( $product['price'], 0, '', '.' ); ?> <?= ps_setting( 'currency_symbol' ); ?></td>
-					<td><?= number_format( $product['quantity'] * $product['price'], 0, '', '.' ); ?> <?= ps_setting( 'currency_symbol' ); ?></td>
+					<td><?= esc_html( $product['title'] ); ?></td>
+					<td><?= esc_html( $product['quantity'] ); ?></td>
+					<td><?= number_format_i18n( $product['price'], 0 ); ?> <?= esc_html( ps_setting( 'currency' ) ); ?></td>
+					<td><?= number_format_i18n( $product['quantity'] * $product['price'], 0 ); ?> <?= esc_html( ps_setting( 'currency' ) ); ?></td>
 				</tr>
 			<?php endforeach; ?>
 			</tbody>

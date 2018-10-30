@@ -12,7 +12,7 @@ class Cart {
 
 	public function register_scripts() {
 		wp_register_style( 'cart', ELU_SHOP_URL . 'assets/css/cart.css' );
-		wp_register_script( 'notify', ELU_SHOP_URL . 'assets/js/alertify.min.js', [ 'jquery' ], '', true );
+		wp_register_script( 'alertifyjs', ELU_SHOP_URL . 'assets/js/alertify.min.js', [ 'jquery' ], '', true );
 		wp_register_script( 'cart', ELU_SHOP_URL . 'assets/js/cart.js', [ 'jquery' ], '', true );
 		wp_localize_script(
 			'cart',
@@ -25,7 +25,7 @@ class Cart {
 	}
 
 	public function enqueue() {
-		wp_enqueue_script( 'notify' );
+		wp_enqueue_script( 'alertifyjs' );
 		wp_enqueue_style( 'cart' );
 		wp_enqueue_script( 'cart' );
 	}
@@ -84,7 +84,7 @@ class Cart {
 			'id'    => $id,
 			'title' => get_the_title( $id ),
 			'price' => ! empty( get_post_meta( $id, 'price', true ) ) ? get_post_meta( $id, 'price', true ) : 0,
-			'url'   => wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'thumbnail', true )[0],
+			'url'   => get_the_post_thumbnail_url( $id, 'thumbnail' ),
 			'link'  => get_permalink( $id ),
 		];
 	}

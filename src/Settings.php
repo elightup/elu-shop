@@ -116,7 +116,7 @@ class Settings {
 			'tab'            => 'shipping',
 			'fields'         => [
 				[
-					'id'    => 'shipping_method',
+					'id'    => 'shipping_methods',
 					'name'  => __( 'Shipping Methods', 'elu-shop' ),
 					'type'  => 'text',
 					'clone' => true,

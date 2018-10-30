@@ -12,7 +12,7 @@
 		}
 
 		updateCartHtml();
-		
+
 		// Remove an item from cart.
 		$cart.on( 'click', '.cart__remove', function( e ) {
 			e.preventDefault();
@@ -31,7 +31,7 @@
 		$( '.radio-info', '.form-info.form-info--pay .form-info__fields:nth-child(1)' ).removeClass('hidden');
 		$( 'input[type=radio]', '.form-info.form-info--pay .form-info__fields:nth-child(1)' ).attr('checked', true);
 		$( 'input[type=radio]', '.check-deliverytype .form-info__fields:nth-child(1)' ).attr('checked', true);
-		
+
 		$( 'input[type=radio]', '.form-info.form-info--pay' ).on( 'click', function( e ) {
 			var radio_class = $( this ).parent().parent(),
 				radio_info = $('.radio-info', radio_class );
@@ -39,8 +39,8 @@
 
 				if ( $(this).attr('checked', true)) {
 					radio_info.removeClass('hidden');
-				} 
-					
+				}
+
 		} ).change();
 
 		// redict page checkout
@@ -56,45 +56,36 @@
 		// Place checkout.
 		$( '.place-checkout' ).on( 'click', function( e ) {
 			e.preventDefault();
-			var info = '',
-				name = '',
-				email = '',
-				phone = '',
-				address = '',
-				notedeliver = '',
-				pay = '',
-				delivery = '';
-
-				name 	    = $ ('.info-details .form-info__name').val();
-				email 	    = $ ('.info-details .form-info__email').val();
-				phone 	    = $ ('.info-details .form-info__phone').val();
-				address     = $ ('.info-details .form-info__address').val();
-				pay 	    = $( '.form-info__input input:checked', '.form-info--pay').val();
-				delivery    = $( '.form-info__input input:checked', '.form-info--ship').val();
-				notedeliver = $ ('.shipment-details .form-info__note').val();
-
-				info = {
-					"name": name,
-					"email": email,
-					"phone": phone,
-					"address": address,
-					"note": notedeliver,
-					"pay": pay,
-					"delivery": delivery
+			var name            = $ ('.info-details .form-info__name').val(),
+				email 	        = $ ('.info-details .form-info__email').val(),
+				phone 	        = $ ('.info-details .form-info__phone').val(),
+				address         = $ ('.info-details .form-info__address').val(),
+				payment_method  = $( '.form-info__input input:checked', '.form-info--pay').val(),
+				shipping_method = $( '.form-info__input input:checked', '.form-info--ship').val(),
+				info            = {
+					name,
+					email,
+					phone,
+					address,
+					payment_method,
+					shipping_method
 				};
 
-				$.post( CheckoutParams.ajaxUrl, {
-					action: 'place_checkout',
-					cart: localStorage.getItem( 'cart' ),
-					note: $( '#order-note' ).val(),
-					info: info,
-				}, function ( response ) {
-					cart.clear();
+			$.post( CheckoutParams.ajaxUrl, {
+				action: 'place_checkout',
+				cart: localStorage.getItem( 'cart' ),
+				note: $( '#order-note' ).val(),
+				info: info,
+			}, function ( response ) {
+				if ( ! response.success ) {
+					return;
+				}
 
-					// Redirect user to account page after purchasing.
-					location.href = response.data;
-					// console.log(response);
-				}, 'json' )
+				cart.clear();
+
+				// Redirect user to confirmation page.
+				location.href = response.data;
+			}, 'json' );
 		} );
 	} );
 } )( jQuery, cart, wp, CheckoutParams );

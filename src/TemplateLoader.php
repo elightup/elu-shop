@@ -1,8 +1,4 @@
 <?php
-/**
- *
- */
-
 namespace ELUSHOP;
 
 class TemplateLoader extends \Gamajo_Template_Loader {
