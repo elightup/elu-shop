@@ -20,9 +20,13 @@ class Notification {
 		}
 		wp_enqueue_script( 'order-notification', ELU_SHOP_URL . 'assets/js/order-notification.js', [ 'jquery' ], '', true );
 		wp_enqueue_style( 'order-notification', ELU_SHOP_URL . 'assets/css/order-notification.css' );
-		wp_localize_script( 'order-notification', 'OrderNotification', [
-			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-		] );
+		wp_localize_script(
+			'order-notification',
+			'OrderNotification',
+			[
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			]
+		);
 	}
 
 	public function get_pending_orders() {
@@ -35,12 +39,14 @@ class Notification {
 			return;
 		}
 		$count = $this->get_total_items( 'pending' );
-		$admin_bar->add_node( [
-			'id'    => 'pending-orders',
-			'title' => "<span class='bubble'>$count</span>" . __( 'Order', 'elu-shop' ),
-			'href'  => admin_url( 'edit.php?post_type=product&page=orders' ),
-			'meta'  => [],
-		] );
+		$admin_bar->add_node(
+			[
+				'id'    => 'pending-orders',
+				'title' => "<span class='bubble'>$count</span>" . __( 'Order', 'elu-shop' ),
+				'href'  => admin_url( 'edit.php?post_type=product&page=orders' ),
+				'meta'  => [],
+			]
+		);
 	}
 
 	protected function get_total_items( $status = '' ) {

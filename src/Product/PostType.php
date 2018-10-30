@@ -11,80 +11,93 @@ class PostType {
 
 	public function register_post_type() {
 		$labels = [
-			'name'          => __( 'Product', 'elu-shop' ),
-			'singular_name' => __( 'Product', 'elu-shop' ),
-			'menu_name'          => _x( 'Products', 'admin menu', 'elu-shop' ),
-			'name_admin_bar'     => _x( 'Product', 'add new on admin bar', 'elu-shop' ),
+			'name'               => __( 'Products', 'elu-shop' ),
+			'singular_name'      => __( 'Product', 'elu-shop' ),
 			'add_new'            => _x( 'Add New', 'Product', 'elu-shop' ),
 			'add_new_item'       => __( 'Add New Product', 'elu-shop' ),
-			'new_item'           => __( 'New Product', 'elu-shop' ),
 			'edit_item'          => __( 'Edit Product', 'elu-shop' ),
+			'new_item'           => __( 'New Product', 'elu-shop' ),
 			'view_item'          => __( 'View Product', 'elu-shop' ),
-			'all_items'          => __( 'All Products', 'elu-shop' ),
+			'view_items'         => __( 'View Products', 'elu-shop' ),
 			'search_items'       => __( 'Search Products', 'elu-shop' ),
+			'not_found'          => __( 'No products found.', 'elu-shop' ),
+			'not_found_in_trash' => __( 'No products found in Trash.', 'elu-shop' ),
 			'parent_item_colon'  => __( 'Parent Products:', 'elu-shop' ),
-			'not_found'          => __( 'No Products found.', 'elu-shop' ),
-			'not_found_in_trash' => __( 'No Products found in Trash.', 'elu-shop' )
+			'all_items'          => __( 'All Products', 'elu-shop' ),
 		];
-		$slug = ps_setting( 'product_slug' );
-		$slug = $slug ? $slug : 'product';
+		$slug   = ps_setting( 'product_slug' );
+		$slug   = $slug ? $slug : 'product';
 		$args   = [
+			'label'       => __( 'Products', 'elu-shop' ),
 			'labels'      => $labels,
-			'supports'    => [ 'title', 'editor', 'excerpt', 'thumbnail', 'comments' ],
+			'supports'    => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
 			'public'      => true,
 			'has_archive' => true,
 			'menu_icon'   => 'dashicons-cart',
-			'rewrite'     => array( 'slug' => $slug ),
+			'rewrite'     => [ 'slug' => $slug ],
 		];
 
 		register_post_type( 'product', $args );
 	}
 
 	public function register_taxonomies() {
-		$labels = [
-			'name'          => __( 'Category', 'elu-shop' ),
-			'singular_name' => __( 'Category', 'elu-shop' ),
+		$category_labels = [
+			'name'                       => __( 'Categories', 'elu-shop' ),
+			'singular_name'              => __( 'Category', 'elu-shop' ),
+			'all_items'                  => __( 'All Categories', 'elu-shop' ),
+			'edit_item'                  => __( 'Edit Category', 'elu-shop' ),
+			'view_item'                  => __( 'View Category', 'elu-shop' ),
+			'update_item'                => __( 'Update Category', 'elu-shop' ),
+			'add_new_item'               => __( 'Add New Category', 'elu-shop' ),
+			'new_item_name'              => __( 'New Category Name', 'elu-shop' ),
+			'parent_item'                => __( 'Parent Category', 'elu-shop' ),
+			'parent_item_colon'          => __( 'Parent Category:', 'elu-shop' ),
+			'search_items'               => __( 'Search Categories', 'elu-shop' ),
+			'popular_items'              => __( 'Popular Categories', 'elu-shop' ),
+			'separate_items_with_commas' => __( 'Separate categories with commas', 'elu-shop' ),
+			'add_or_remove_items'        => __( 'Add or remove categories', 'elu-shop' ),
+			'choose_from_most_used'      => __( 'Choose from the most used categories', 'elu-shop' ),
+			'not_found'                  => __( 'No categories found', 'elu-shop' ),
+			'back_to_items'              => __( '&larr; Back to categories', 'elu-shop' ),
 		];
-		$args   = [
-			'labels'            => $labels,
+		$category_args   = [
+			'label'             => __( 'Categories', 'elu-shop' ),
+			'labels'            => $category_labels,
 			'hierarchical'      => true,
-			'public'            => true,
 			'show_admin_column' => true,
 		];
-		$taxonomy_slug = ps_setting( 'product_category_slug' );
-		$taxonomy_slug = $taxonomy_slug ? $taxonomy_slug : 'product-category';
-		register_taxonomy( $taxonomy_slug, 'product', $args );
-		
-		$labels2 = [
-			'name'          => 'Tags',
-			'singular_name' => 'Tags',
-		    'search_items' =>  __( 'Search Tags', 'elu-shop'),
-		    'popular_items' => __( 'Popular Tags', 'elu-shop' ),
-		    'all_items' => __( 'All Tags' ),
-		    'parent_item' => null,
-		    'parent_item_colon' => null,
-		    'edit_item' => __( 'Edit Topic', 'elu-shop' ),
-		    'update_item' => __( 'Update Topic', 'elu-shop' ),
-		    'add_new_item' => __( 'Add New Topic', 'elu-shop' ),
-		    'new_item_name' => __( 'New Topic Name', 'elu-shop' ),
-		    'separate_items_with_commas' => __( 'Separate Tags with commas', 'elu-shop' ),
-		    'add_or_remove_items' => __( 'Add or remove Tags', 'elu-shop' ),
-		    'choose_from_most_used' => __( 'Choose from the most used Tags', 'elu-shop' ),
-		    'menu_name' => __( 'Tags' ),
-		];
-		$args2   = [
-			'hierarchical' => false,
-		    'labels' => $labels2,
-		    'show_ui' => true,
-		    'show_admin_column' => true,
-		    'update_count_callback' => '_update_post_term_count',
-		    'query_var' => true,
-		];
+		$category_slug   = ps_setting( 'product_category_slug' );
+		$category_slug   = $category_slug ? $category_slug : 'product-category';
+		register_taxonomy( $category_slug, 'product', $category_args );
 
-		$tag_slug = ps_setting( 'product_tag_slug' );
-		$tag_slug = $tag_slug ? $tag_slug : 'product-tag';
-
-		register_taxonomy( $tag_slug, 'product', $args2 );
+		$tag_labels = [
+			'name'                       => __( 'Tags', 'elu-shop' ),
+			'singular_name'              => __( 'Tag', 'elu-shop' ),
+			'all_items'                  => __( 'All Tags', 'elu-shop' ),
+			'edit_item'                  => __( 'Edit Tag', 'elu-shop' ),
+			'view_item'                  => __( 'View Tag', 'elu-shop' ),
+			'update_item'                => __( 'Update Tag', 'elu-shop' ),
+			'add_new_item'               => __( 'Add New Tag', 'elu-shop' ),
+			'new_item_name'              => __( 'New Tag Name', 'elu-shop' ),
+			'parent_item'                => __( 'Parent Tag', 'elu-shop' ),
+			'parent_item_colon'          => __( 'Parent Tag:', 'elu-shop' ),
+			'search_items'               => __( 'Search Tags', 'elu-shop' ),
+			'popular_items'              => __( 'Popular Tags', 'elu-shop' ),
+			'separate_items_with_commas' => __( 'Separate tags with commas', 'elu-shop' ),
+			'add_or_remove_items'        => __( 'Add or remove tags', 'elu-shop' ),
+			'choose_from_most_used'      => __( 'Choose from the most used tags', 'elu-shop' ),
+			'not_found'                  => __( 'No tags found', 'elu-shop' ),
+			'back_to_items'              => __( '&larr; Back to tags', 'elu-shop' ),
+		];
+		$tag_args   = [
+			'label'             => __( 'Tags', 'elu-shop' ),
+			'labels'            => $tag_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+		];
+		$tag_slug   = ps_setting( 'product_tag_slug' );
+		$tag_slug   = $tag_slug ? $tag_slug : 'product-tag';
+		register_taxonomy( $tag_slug, 'product', $tag_args );
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
@@ -97,7 +110,7 @@ class PostType {
 					'name' => __( 'Price', 'elu-shop' ),
 					'type' => 'number',
 					'min'  => 0,
-					'desc' => sprintf( __( 'In %s.', 'elu-shop' ), ps_setting( 'currency_symbol' ) ),
+					'desc' => sprintf( __( 'In %s.', 'elu-shop' ), ps_setting( 'currency' ) ),
 					'size' => 10,
 				],
 				[
@@ -105,7 +118,7 @@ class PostType {
 					'name' => __( 'Price before sale', 'elu-shop' ),
 					'type' => 'number',
 					'min'  => 0,
-					'desc' => sprintf( __( 'In %s. Leave blank if the product has no discount.', 'elu-shop' ), ps_setting( 'currency_symbol' ) ),
+					'desc' => sprintf( __( 'In %s. Leave blank if the product has no discount.', 'elu-shop' ), ps_setting( 'currency' ) ),
 					'size' => 10,
 				],
 			],

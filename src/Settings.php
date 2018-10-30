@@ -10,13 +10,13 @@ class Settings {
 
 	public function register_settings_page( $settings_pages ) {
 		$settings_pages[] = [
-			'id'            => 'elu-shop',
-			'option_name'   => 'elu_shop',
-			'menu_title'    => __( 'Settings', 'elu-shop' ),
-			'parent'        => 'edit.php?post_type=product',
-			'style'         => 'no-boxes',
-			'columns'       => true,
-			'tabs'          => [
+			'id'          => 'elu-shop',
+			'option_name' => 'elu_shop',
+			'menu_title'  => __( 'Settings', 'elu-shop' ),
+			'parent'      => 'edit.php?post_type=product',
+			'style'       => 'no-boxes',
+			'columns'     => true,
+			'tabs'        => [
 				'general'  => __( 'General', 'elu-shop' ),
 				'payment'  => __( 'Payment', 'elu-shop' ),
 				'shipping' => __( 'Shipping', 'elu-shop' ),
@@ -27,6 +27,9 @@ class Settings {
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
+		if ( ! function_exists( 'mb_settings_page_load' ) ) {
+			return $meta_boxes;
+		}
 		$meta_boxes[] = [
 			'id'             => 'general',
 			'title'          => ' ',
@@ -34,22 +37,22 @@ class Settings {
 			'tab'            => 'general',
 			'fields'         => [
 				[
-					'id'        => 'product_slug',
-					'name'      => __( 'Product Slug', 'elu-shop' ),
-					'type'      => 'text',
-					'std'       => 'product',
+					'id'   => 'product_slug',
+					'name' => __( 'Product Slug', 'elu-shop' ),
+					'type' => 'text',
+					'std'  => 'product',
 				],
 				[
-					'id'        => 'product_category_slug',
-					'name'      => __( 'Product Category Slug', 'elu-shop' ),
-					'type'      => 'text',
-					'std'       => 'product-category',
+					'id'   => 'product_category_slug',
+					'name' => __( 'Product Category Slug', 'elu-shop' ),
+					'type' => 'text',
+					'std'  => 'product-category',
 				],
 				[
-					'id'        => 'product_tag_slug',
-					'name'      => __( 'Product Tag Slug', 'elu-shop' ),
-					'type'      => 'text',
-					'std'       => 'product-tag',
+					'id'   => 'product_tag_slug',
+					'name' => __( 'Product Tag Slug', 'elu-shop' ),
+					'type' => 'text',
+					'std'  => 'product-tag',
 				],
 				[
 					'id'        => 'cart_page',
@@ -83,19 +86,19 @@ class Settings {
 					'name' => __( 'Currency', 'elu-shop' ),
 				],
 				[
-					'id' => 'payment_methods',
-					'type' => 'group',
-					'name' => __( 'Payment Methods', 'elu-shop' ),
-					'clone' => true,
+					'id'     => 'payment_methods',
+					'type'   => 'group',
+					'name'   => __( 'Payment Methods', 'elu-shop' ),
+					'clone'  => true,
 					'fields' => [
 						[
 							'id'   => 'payment_method_title',
 							'type' => 'text',
 						],
 						[
-							'id'   => 'payment_method_description',
-							'type' => 'wysiwyg',
-							'options'  =>
+							'id'      => 'payment_method_description',
+							'type'    => 'wysiwyg',
+							'options' =>
 							[
 								'textarea_rows' => 6,
 								'media_buttons' => false,
@@ -113,9 +116,9 @@ class Settings {
 			'tab'            => 'shipping',
 			'fields'         => [
 				[
-					'id'      => 'shipping_method',
-					'name'    =>__( 'Shipping Methods', 'elu-shop' ),
-					'type'    => 'text',
+					'id'    => 'shipping_method',
+					'name'  => __( 'Shipping Methods', 'elu-shop' ),
+					'type'  => 'text',
 					'clone' => true,
 				],
 			],
@@ -128,14 +131,14 @@ class Settings {
 			'tab'            => 'support',
 			'fields'         => [
 				[
-					'type' 	 => 'custom_html',
-					'name'   => __( 'Add to cart', 'elu-shop' ),
-					'std'    => '<code>ELUSHOP\Cart::add_cart();</code>',
+					'type' => 'custom_html',
+					'name' => __( 'Add to cart', 'elu-shop' ),
+					'std'  => '<code>ELUSHOP\Cart::add_cart();</code>',
 				],
 				[
-					'type' 	 => 'custom_html',
-					'name'   => __( 'Buy fast', 'elu-shop' ),
-					'std'    => '<code>ELUSHOP\Cart::cart();</code>',
+					'type' => 'custom_html',
+					'name' => __( 'Buy fast', 'elu-shop' ),
+					'std'  => '<code>ELUSHOP\Cart::cart();</code>',
 				],
 			],
 		];

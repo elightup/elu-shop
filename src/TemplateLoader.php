@@ -5,7 +5,6 @@
 
 namespace ELUSHOP;
 
-
 class TemplateLoader extends \Gamajo_Template_Loader {
 	/**
 	 * Prefix for filter names.

@@ -13,15 +13,19 @@ class Checkout {
 	}
 
 	public function enqueue() {
-		if ( ( ! $this->is_page_order()  ) && ( ! $this->is_page_checkout() ) ) {
+		if ( ( ! $this->is_page_order() ) && ( ! $this->is_page_checkout() ) ) {
 			return;
 		}
 		wp_enqueue_style( 'checkout', ELU_SHOP_URL . 'assets/css/checkout.css' );
 		wp_enqueue_script( 'checkout', ELU_SHOP_URL . 'assets/js/checkout.js', [ 'cart', 'wp-util' ], '', true );
-		wp_localize_script( 'checkout', 'CheckoutParams', [
-			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-			'budget'  => intval( get_user_meta( get_current_user_id(), 'budget', true ) ),
-		] );
+		wp_localize_script(
+			'checkout',
+			'CheckoutParams',
+			[
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'budget'  => intval( get_user_meta( get_current_user_id(), 'budget', true ) ),
+			]
+		);
 	}
 
 	public function filter_content( $content ) {
@@ -39,9 +43,12 @@ class Checkout {
 	}
 
 	public function place_order() {
-		$url = add_query_arg( [
-			'userid'   => get_current_user_id(),
-		], get_permalink( ps_setting( 'checkout_page' ) ) );
+		$url = add_query_arg(
+			[
+				'userid' => get_current_user_id(),
+			],
+			get_permalink( ps_setting( 'checkout_page' ) )
+		);
 		wp_send_json_success( $url );
 	}
 
@@ -61,28 +68,35 @@ class Checkout {
 		}
 
 		global $wpdb;
-		$wpdb->insert( "{$wpdb->prefix}orders", [
-			'date'   => date( 'Y-m-d H:i:s' ),
-			'status' => 'pending',
-			'user'   => get_current_user_id(),
-			'amount' => $amount,
-			'note'   => $note,
-			'info'	 => json_encode( $info ),
-			'data'   => json_encode( $data, JSON_UNESCAPED_UNICODE ),
-		], [
-			'%s',
-			'%s',
-			'%d',
-			'%d',
-			'%s',
-			'%s',
-			'%s',
-		] );
-		$url = add_query_arg( [
-			'view' => 'order',
-			'id'   => $wpdb->insert_id,
-			'type' => 'checkout',
-		], get_permalink( ps_setting( 'invoice_details' ) ) );
+		$wpdb->insert(
+			"{$wpdb->prefix}orders",
+			[
+				'date'   => date( 'Y-m-d H:i:s' ),
+				'status' => 'pending',
+				'user'   => get_current_user_id(),
+				'amount' => $amount,
+				'note'   => $note,
+				'info'   => json_encode( $info ),
+				'data'   => json_encode( $data, JSON_UNESCAPED_UNICODE ),
+			],
+			[
+				'%s',
+				'%s',
+				'%d',
+				'%d',
+				'%s',
+				'%s',
+				'%s',
+			]
+		);
+		$url = add_query_arg(
+			[
+				'view' => 'order',
+				'id'   => $wpdb->insert_id,
+				'type' => 'checkout',
+			],
+			get_permalink( ps_setting( 'invoice_details' ) )
+		);
 		wp_send_json_success( $url );
 	}
 

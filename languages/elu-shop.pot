@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x\n"
 "X-Poedit-Basepath: ..\n"
@@ -25,21 +25,21 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-4: images\n"
 "X-Poedit-SearchPathExcluded-5: sass\n"
 
-#: src/Cart.php:31 templates/checkout.php:124
+#: src/Cart.php:38 templates/checkout.php:124
 msgid "Buy now"
 msgstr ""
 
-#: src/Cart.php:35 src/Cart.php:56 templates/account/order.php:74
+#: src/Cart.php:43 src/Cart.php:67 templates/account/order.php:74
 #: templates/admin/order.php:103 templates/checkout.php:93
 #: templates/order.php:20
 msgid "Amount"
 msgstr ""
 
-#: src/Cart.php:51
+#: src/Cart.php:61
 msgid "Add cart"
 msgstr ""
 
-#: src/Cart.php:52
+#: src/Cart.php:62
 msgid "Added to shopping cart"
 msgstr ""
 
@@ -51,203 +51,352 @@ msgstr ""
 msgid "Number of lines per page"
 msgstr ""
 
-#: src/Order/Notification.php:40 src/Order/Table.php:180
+#: src/Order/Notification.php:45 src/Order/Table.php:188
 #: templates/admin/orders.php:3
 msgid "Order"
 msgstr ""
 
-#: src/Order/Table.php:26
+#: src/Order/Table.php:28
 msgid "Finish"
 msgstr ""
 
-#: src/Order/Table.php:27 src/Order/Table.php:196
-#: templates/account/order.php:27 templates/account/orders.php:37
+#: src/Order/Table.php:29 src/Order/Table.php:207 src/Order/Table.php:235
+#: templates/account/order.php:27 templates/account/orders.php:38
 #: templates/admin/order.php:21 templates/admin/order.php:43
 msgid "Processing"
 msgstr ""
 
-#: src/Order/Table.php:28 src/Order/Table.php:270
+#: src/Order/Table.php:30 src/Order/Table.php:299
 msgid "Move to trash"
 msgstr ""
 
-#: src/Order/Table.php:44
+#: src/Order/Table.php:46
 msgid "Filter"
 msgstr ""
 
-#: src/Order/Table.php:48 src/Order/Table.php:279 src/Order/Table.php:292
+#: src/Order/Table.php:50 src/Order/Table.php:311 src/Order/Table.php:327
 msgid "Empty trash"
 msgstr ""
 
-#: src/Order/Table.php:74
+#: src/Order/Table.php:78
 msgid "All dates"
 msgstr ""
 
-#: src/Order/Table.php:88
+#: src/Order/Table.php:93
 #, php-format
 msgid "%1$s %2$d"
 msgstr ""
 
-#: src/Order/Table.php:154
+#: src/Order/Table.php:161
 msgid "Date"
 msgstr ""
 
-#: src/Order/Table.php:155 templates/account/order.php:23
-#: templates/account/orders.php:26 templates/admin/order.php:17
+#: src/Order/Table.php:162 templates/account/order.php:23
+#: templates/account/orders.php:27 templates/admin/order.php:17
 msgid "Status"
 msgstr ""
 
-#: src/Order/Table.php:156 src/Product/PostType.php:14
-#: src/Product/PostType.php:15
+#: src/Order/Table.php:163 src/Product/PostType.php:15
 msgid "Product"
 msgstr ""
 
-#: src/Order/Table.php:157 templates/admin/order.php:105
+#: src/Order/Table.php:164 templates/admin/order.php:105
 #: templates/checkout.php:119
 msgid "Total"
 msgstr ""
 
-#: src/Order/Table.php:197 templates/account/order.php:28
-#: templates/account/orders.php:38 templates/admin/order.php:22
-#: templates/admin/order.php:33
+#: src/Order/Table.php:208 src/Order/Table.php:219
+#: templates/account/order.php:28 templates/account/orders.php:39
+#: templates/admin/order.php:22 templates/admin/order.php:33
 msgid "Completed"
 msgstr ""
 
-#: src/Order/Table.php:198 templates/account/order.php:29
-#: templates/account/orders.php:39 templates/admin/order.php:23
+#: src/Order/Table.php:209 templates/account/order.php:29
+#: templates/account/orders.php:40 templates/admin/order.php:23
 msgid "Deleted"
 msgstr ""
 
-#: src/Order/Table.php:207
-msgid "Process finished"
-msgstr ""
-
-#: src/Order/Table.php:217
-msgid "No process"
-msgstr ""
-
-#: src/Order/Table.php:252
+#: src/Order/Table.php:275
 msgid "Detail"
 msgstr ""
 
-#: src/Order/Table.php:261 src/Order/Table.php:296
+#: src/Order/Table.php:287 src/Order/Table.php:331
 msgid "Restore"
 msgstr ""
 
-#: src/Order/Table.php:291 templates/order.php:23
+#: src/Order/Table.php:326 templates/order.php:23
 msgid "Delete"
 msgstr ""
 
-#: src/Product/PostType.php:29 src/Product/PostType.php:30
-msgid "Category"
+#: src/Product/PostType.php:14 src/Product/PostType.php:31
+msgid "Products"
 msgstr ""
 
-#: src/Product/PostType.php:44
-msgid "Search Tags"
+#: src/Product/PostType.php:16
+msgctxt "Product"
+msgid "Add New"
 msgstr ""
 
-#: src/Product/PostType.php:45
-msgid "Popular Tags"
+#: src/Product/PostType.php:17
+msgid "Add New Product"
+msgstr ""
+
+#: src/Product/PostType.php:18
+msgid "Edit Product"
+msgstr ""
+
+#: src/Product/PostType.php:19
+msgid "New Product"
+msgstr ""
+
+#: src/Product/PostType.php:20
+msgid "View Product"
+msgstr ""
+
+#: src/Product/PostType.php:21
+msgid "View Products"
+msgstr ""
+
+#: src/Product/PostType.php:22
+msgid "Search Products"
+msgstr ""
+
+#: src/Product/PostType.php:23
+msgid "No products found."
+msgstr ""
+
+#: src/Product/PostType.php:24
+msgid "No products found in Trash."
+msgstr ""
+
+#: src/Product/PostType.php:25
+msgid "Parent Products:"
+msgstr ""
+
+#: src/Product/PostType.php:26
+msgid "All Products"
+msgstr ""
+
+#: src/Product/PostType.php:45 src/Product/PostType.php:64
+msgid "Categories"
 msgstr ""
 
 #: src/Product/PostType.php:46
-msgid "All Tags"
+msgid "Category"
+msgstr ""
+
+#: src/Product/PostType.php:47
+msgid "All Categories"
+msgstr ""
+
+#: src/Product/PostType.php:48
+msgid "Edit Category"
 msgstr ""
 
 #: src/Product/PostType.php:49
-msgid "Edit Topic"
+msgid "View Category"
 msgstr ""
 
 #: src/Product/PostType.php:50
-msgid "Update Topic"
+msgid "Update Category"
 msgstr ""
 
 #: src/Product/PostType.php:51
-msgid "Add New Topic"
+msgid "Add New Category"
 msgstr ""
 
 #: src/Product/PostType.php:52
-msgid "New Topic Name"
+msgid "New Category Name"
 msgstr ""
 
 #: src/Product/PostType.php:53
-msgid "Separate Tags with commas"
+msgid "Parent Category"
 msgstr ""
 
 #: src/Product/PostType.php:54
-msgid "Add or remove Tags"
+msgid "Parent Category:"
 msgstr ""
 
 #: src/Product/PostType.php:55
-msgid "Choose from the most used Tags"
+msgid "Search Categories"
 msgstr ""
 
 #: src/Product/PostType.php:56
+msgid "Popular Categories"
+msgstr ""
+
+#: src/Product/PostType.php:57
+msgid "Separate categories with commas"
+msgstr ""
+
+#: src/Product/PostType.php:58
+msgid "Add or remove categories"
+msgstr ""
+
+#: src/Product/PostType.php:59
+msgid "Choose from the most used categories"
+msgstr ""
+
+#: src/Product/PostType.php:60
+msgid "No categories found"
+msgstr ""
+
+#: src/Product/PostType.php:61
+msgid "&larr; Back to categories"
+msgstr ""
+
+#: src/Product/PostType.php:74 src/Product/PostType.php:93
 msgid "Tags"
 msgstr ""
 
-#: src/Product/PostType.php:71
-msgid "Product information"
+#: src/Product/PostType.php:75
+msgid "Tag"
 msgstr ""
 
-#: src/Product/PostType.php:76 templates/account/order.php:75
+#: src/Product/PostType.php:76
+msgid "All Tags"
+msgstr ""
+
+#: src/Product/PostType.php:77
+msgid "Edit Tag"
+msgstr ""
+
+#: src/Product/PostType.php:78
+msgid "View Tag"
+msgstr ""
+
+#: src/Product/PostType.php:79
+msgid "Update Tag"
+msgstr ""
+
+#: src/Product/PostType.php:80
+msgid "Add New Tag"
+msgstr ""
+
+#: src/Product/PostType.php:81
+msgid "New Tag Name"
+msgstr ""
+
+#: src/Product/PostType.php:82
+msgid "Parent Tag"
+msgstr ""
+
+#: src/Product/PostType.php:83
+msgid "Parent Tag:"
+msgstr ""
+
+#: src/Product/PostType.php:84
+msgid "Search Tags"
+msgstr ""
+
+#: src/Product/PostType.php:85
+msgid "Popular Tags"
+msgstr ""
+
+#: src/Product/PostType.php:86
+msgid "Separate tags with commas"
+msgstr ""
+
+#: src/Product/PostType.php:87
+msgid "Add or remove tags"
+msgstr ""
+
+#: src/Product/PostType.php:88
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: src/Product/PostType.php:89
+msgid "No tags found"
+msgstr ""
+
+#: src/Product/PostType.php:90
+msgid "&larr; Back to tags"
+msgstr ""
+
+#: src/Product/PostType.php:105
+msgid "Product Information"
+msgstr ""
+
+#: src/Product/PostType.php:110 templates/account/order.php:75
 #: templates/order.php:21
 msgid "Price"
 msgstr ""
 
-#: src/Product/PostType.php:79 src/Product/PostType.php:87
-msgid "Calculated in units"
+#: src/Product/PostType.php:113
+#, php-format
+msgid "In %s."
 msgstr ""
 
-#: src/Product/PostType.php:87
-msgid "Leave blank if product has no discount"
+#: src/Product/PostType.php:118
+msgid "Price before sale"
+msgstr ""
+
+#: src/Product/PostType.php:121
+#, php-format
+msgid "In %s. Leave blank if the product has no discount."
 msgstr ""
 
 #: src/Settings.php:15
-msgid "Setting"
+msgid "Settings"
 msgstr ""
 
 #: src/Settings.php:20
 msgid "General"
 msgstr ""
 
-#: src/Settings.php:21 templates/checkout.php:18 templates/order.php:56
-msgid "Pay"
+#: src/Settings.php:21
+msgid "Payment"
 msgstr ""
 
-#: src/Settings.php:22 src/Settings.php:93
-msgid "Transport"
+#: src/Settings.php:22
+msgid "Shipping"
 msgstr ""
 
-#: src/Settings.php:23 src/Settings.php:109
+#: src/Settings.php:23
 msgid "Support"
 msgstr ""
 
-#: src/Settings.php:38
-msgid "Order page"
+#: src/Settings.php:41
+msgid "Product Slug"
 msgstr ""
 
-#: src/Settings.php:44
-msgid "Payment page"
+#: src/Settings.php:47
+msgid "Product Category Slug"
+msgstr ""
+
+#: src/Settings.php:53
+msgid "Product Tag Slug"
+msgstr ""
+
+#: src/Settings.php:59
+msgid "Cart Page"
 msgstr ""
 
 #: src/Settings.php:65
-msgid "Currency symbol"
+msgid "Checkout Page"
 msgstr ""
 
-#: src/Settings.php:70 templates/admin/order.php:79 templates/checkout.php:43
-msgid "Payments"
+#: src/Settings.php:71
+msgid "Confirmation Page"
 msgstr ""
 
-#: src/Settings.php:99 templates/account/order.php:37
-#: templates/admin/order.php:80 templates/checkout.php:66
-msgid "Form of transportation"
+#: src/Settings.php:86
+msgid "Currency"
 msgstr ""
 
-#: src/Settings.php:115
-msgid "Add to cart"
+#: src/Settings.php:91
+msgid "Payment Methods"
 msgstr ""
 
 #: src/Settings.php:120
+msgid "Shipping Methods"
+msgstr ""
+
+#: src/Settings.php:135
+msgid "Add to cart"
+msgstr ""
+
+#: src/Settings.php:140
 msgid "Buy fast"
 msgstr ""
 
@@ -267,8 +416,13 @@ msgstr ""
 msgid "Time Order"
 msgstr ""
 
+#: templates/account/order.php:37 templates/admin/order.php:80
+#: templates/checkout.php:66
+msgid "Form of transportation"
+msgstr ""
+
 #: templates/account/order.php:41 templates/account/order.php:76
-#: templates/account/orders.php:27 templates/admin/order.php:56
+#: templates/account/orders.php:28 templates/admin/order.php:56
 msgid "Total money"
 msgstr ""
 
@@ -307,31 +461,31 @@ msgstr ""
 msgid "Order list"
 msgstr ""
 
-#: templates/account/orders.php:13
+#: templates/account/orders.php:14
 msgid "You have no orders."
 msgstr ""
 
-#: templates/account/orders.php:14
+#: templates/account/orders.php:15
 msgid "Click here"
 msgstr ""
 
-#: templates/account/orders.php:14
+#: templates/account/orders.php:15
 msgid "to start the purchase"
 msgstr ""
 
-#: templates/account/orders.php:24
+#: templates/account/orders.php:25
 msgid "Order Code"
 msgstr ""
 
-#: templates/account/orders.php:25
+#: templates/account/orders.php:26
 msgid "Time"
 msgstr ""
 
-#: templates/account/orders.php:28
+#: templates/account/orders.php:29
 msgid "Action"
 msgstr ""
 
-#: templates/account/orders.php:46
+#: templates/account/orders.php:47
 msgid "See details"
 msgstr ""
 
@@ -353,6 +507,10 @@ msgstr ""
 
 #: templates/admin/order.php:75
 msgid "Name"
+msgstr ""
+
+#: templates/admin/order.php:79 templates/checkout.php:43
+msgid "Payments"
 msgstr ""
 
 #: templates/admin/order.php:81
@@ -386,6 +544,10 @@ msgstr ""
 
 #: templates/checkout.php:13 templates/order.php:11 templates/order.php:55
 msgid "Back home"
+msgstr ""
+
+#: templates/checkout.php:18 templates/order.php:56
+msgid "Pay"
 msgstr ""
 
 #: templates/checkout.php:21

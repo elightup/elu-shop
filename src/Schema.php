@@ -1,10 +1,11 @@
 <?php
 namespace ELUSHOP;
+
 class schema {
 	public static function register_tables() {
 		global $wpdb;
-		$wpdb->tables[]     = 'orders';
-		$wpdb->orders       = $wpdb->prefix . 'orders';
+		$wpdb->tables[] = 'orders';
+		$wpdb->orders   = $wpdb->prefix . 'orders';
 	}
 
 	public static function create_tables() {

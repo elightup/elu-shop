@@ -6,10 +6,12 @@ class Table extends \WP_List_Table {
 	protected $base_url;
 
 	public function __construct() {
-		parent::__construct( [
-			'singular' => 'order',
-			'plural'   => 'orders',
-		] );
+		parent::__construct(
+			[
+				'singular' => 'order',
+				'plural'   => 'orders',
+			]
+		);
 		$this->base_url = admin_url( 'edit.php?page=orders&post_type=product' );
 	}
 
@@ -56,12 +58,14 @@ class Table extends \WP_List_Table {
 		global $wpdb, $wp_locale;
 
 		$where  = $this->get_sql_where_clause();
-		$months = $wpdb->get_results( "
+		$months = $wpdb->get_results(
+			"
 			SELECT DISTINCT YEAR( `date` ) AS year, MONTH( `date` ) AS month
 			FROM $wpdb->orders
 			$where
 			ORDER BY `date` DESC
-		" );
+		"
+		);
 
 		$month_count = count( $months );
 		if ( ! $month_count || ( 1 == $month_count && 0 == $months[0]->month ) ) {
@@ -81,7 +85,8 @@ class Table extends \WP_List_Table {
 				$month = zeroise( $arc_row->month, 2 );
 				$year  = $arc_row->year;
 
-				printf( "<option %s value='%s'>%s</option>\n",
+				printf(
+					"<option %s value='%s'>%s</option>\n",
 					selected( $m, $year . $month, false ),
 					esc_attr( $arc_row->year . $month ),
 					/* translators: 1: month name, 2: 4-digit year */
@@ -103,10 +108,12 @@ class Table extends \WP_List_Table {
 		$per_page = $this->get_items_per_page( 'orders_per_page', 20 );
 		$page     = $this->get_pagenum();
 
-		$this->set_pagination_args( [
-			'total_items' => $this->get_total_items(),
-			'per_page'    => $per_page,
-		] );
+		$this->set_pagination_args(
+			[
+				'total_items' => $this->get_total_items(),
+				'per_page'    => $per_page,
+			]
+		);
 
 		$where  = $this->get_sql_where_clause();
 		$order  = $this->get_sql_order_clause();
@@ -142,7 +149,7 @@ class Table extends \WP_List_Table {
 		if ( empty( $_REQUEST['orderby'] ) ) {
 			return '';
 		}
-		$order = 'ORDER BY ' . esc_sql( $_REQUEST['orderby'] );
+		$order  = 'ORDER BY ' . esc_sql( $_REQUEST['orderby'] );
 		$order .= ! empty( $_REQUEST['order'] ) ? ' ' . esc_sql( $_REQUEST['order'] ) : ' ASC';
 		return $order;
 	}
@@ -171,17 +178,21 @@ class Table extends \WP_List_Table {
 
 	public function column_cb( $item ) {
 		return sprintf(
-			'<input type="checkbox" name="orders[]" value="%s">', intval( $item['id'] )
+			'<input type="checkbox" name="orders[]" value="%s">',
+			intval( $item['id'] )
 		);
 	}
 
 	public function column_id( $item ) {
 		$title = sprintf(
 			'<a href="%s"><strong>' . __( 'Order', 'elu-shop' ) . ': #%d</strong></a>',
-			add_query_arg( [
-				'action' => 'view',
-				'id'     => $item['id'],
-			], $this->base_url ),
+			add_query_arg(
+				[
+					'action' => 'view',
+					'id'     => $item['id'],
+				],
+				$this->base_url
+			),
 			$item['id']
 		);
 		return $title . $this->row_actions( $this->get_row_actions( $item ) );
@@ -198,30 +209,42 @@ class Table extends \WP_List_Table {
 			'trash'   => [ 'badge badge--danger', __( 'Deleted', 'elu-shop' ) ],
 		];
 		$status   = $statuses[ $item['status'] ];
-		$user = get_userdata( $item['user'] );
-		$payments 	= $item['info'];
-		$payments   = json_decode( $payments, true );
-		
+		$user     = get_userdata( $item['user'] );
+		$payments = $item['info'];
+		$payments = json_decode( $payments, true );
+
 		printf( '<span class="%s">%s</span>', $status[0], $status[1] );
 		if ( 'pending' === $item['status'] ) {
-			printf( '<a href="%s" class="button">' . __( 'Completed', 'elu-shop' ) . ' </a>', add_query_arg( [
-				'action'   => 'close',
-				'id'       => $item['id'],
-				'user'     => $user->ID,
-				'amount'   => number_format( $item['amount'],0, '', '.' ),
-				'payments' => $payments[0]['pay'],
-				'_wpnonce' => wp_create_nonce( 'ps_close_order' ),
-			], $this->base_url ) );
+			printf(
+				'<a href="%s" class="button">' . __( 'Completed', 'elu-shop' ) . ' </a>',
+				add_query_arg(
+					[
+						'action'   => 'close',
+						'id'       => $item['id'],
+						'user'     => $user->ID,
+						'amount'   => number_format( $item['amount'], 0, '', '.' ),
+						'payments' => $payments[0]['pay'],
+						'_wpnonce' => wp_create_nonce( 'ps_close_order' ),
+					],
+					$this->base_url
+				)
+			);
 		}
 		if ( 'closed' === $item['status'] ) {
-			printf( '<a href="%s" class="button">' . __( 'Processing', 'elu-shop' ) . ' </a>', add_query_arg( [
-				'action'   => 'open',
-				'id'       => $item['id'],
-				'user'     => $user->ID,
-				'amount'   => number_format( $item['amount'],0, '', '.' ),
-				'payments' => $payments[0]['pay'],
-				'_wpnonce' => wp_create_nonce( 'ps_open_order' ),
-			], $this->base_url ) );
+			printf(
+				'<a href="%s" class="button">' . __( 'Processing', 'elu-shop' ) . ' </a>',
+				add_query_arg(
+					[
+						'action'   => 'open',
+						'id'       => $item['id'],
+						'user'     => $user->ID,
+						'amount'   => number_format( $item['amount'], 0, '', '.' ),
+						'payments' => $payments[0]['pay'],
+						'_wpnonce' => wp_create_nonce( 'ps_open_order' ),
+					],
+					$this->base_url
+				)
+			);
 		}
 	}
 
@@ -240,8 +263,8 @@ class Table extends \WP_List_Table {
 	}
 
 	public function column_payments( $item ) {
-		$payments 	= $item['info'];
-		$payments   = json_decode( $payments, true );
+		$payments = $item['info'];
+		$payments = json_decode( $payments, true );
 		echo $payments[0]['pay'];
 	}
 
@@ -250,38 +273,50 @@ class Table extends \WP_List_Table {
 		$actions = [
 			'view' => sprintf(
 				'<a href="%s">' . __( 'Detail', 'elu-shop' ) . '</a>',
-				add_query_arg( [
-					'action' => 'view',
-					'id'     => $item['id'],
-				], $this->base_url )
+				add_query_arg(
+					[
+						'action' => 'view',
+						'id'     => $item['id'],
+					],
+					$this->base_url
+				)
 			),
 		];
 		if ( 'trash' === $item['status'] ) {
 			$actions['untrash'] = sprintf(
 				'<a href="%s">' . __( 'Restore', 'elu-shop' ) . '</a>',
-				add_query_arg( [
-					'action'   => 'untrash',
-					'id'       => $item['id'],
-					'_wpnonce' => wp_create_nonce( 'ps_untrash_order' ),
-				], $this->base_url )
+				add_query_arg(
+					[
+						'action'   => 'untrash',
+						'id'       => $item['id'],
+						'_wpnonce' => wp_create_nonce( 'ps_untrash_order' ),
+					],
+					$this->base_url
+				)
 			);
 		} else {
 			$actions['trash'] = sprintf(
 				'<a href="%s">' . __( 'Move to trash', 'elu-shop' ) . '</a>',
-				add_query_arg( [
-					'action'   => 'trash',
-					'id'       => $item['id'],
-					'_wpnonce' => wp_create_nonce( 'ps_trash_order' ),
-				], $this->base_url )
+				add_query_arg(
+					[
+						'action'   => 'trash',
+						'id'       => $item['id'],
+						'_wpnonce' => wp_create_nonce( 'ps_trash_order' ),
+					],
+					$this->base_url
+				)
 			);
 		}
 		$actions['delete'] = sprintf(
 			'<a href="%s">' . __( 'Empty trash', 'elu-shop' ) . '</a>',
-			add_query_arg( [
-				'action'   => 'delete',
-				'id'       => $item['id'],
-				'_wpnonce' => wp_create_nonce( 'ps_delete_order' ),
-			], $this->base_url )
+			add_query_arg(
+				[
+					'action'   => 'delete',
+					'id'       => $item['id'],
+					'_wpnonce' => wp_create_nonce( 'ps_delete_order' ),
+				],
+				$this->base_url
+			)
 		);
 		return $actions;
 	}

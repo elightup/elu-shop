@@ -20,7 +20,7 @@ class AdminList {
 			__( 'Orders', 'elu-shop' ),
 			'edit_posts',
 			'orders',
-			[ $this, 'render', ]
+			[ $this, 'render' ]
 		);
 		add_action( "load-$page", [ $this, 'create_table' ] );
 		add_action( "load-$page", [ $this, 'add_screen_options' ] );
