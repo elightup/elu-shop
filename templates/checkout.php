@@ -46,7 +46,7 @@
 										<?= wp_kses_post( $payment_method['payment_method_title'] ); ?>
 									</label>
 									<div class="radio-info pay-in-cash hidden">
-										<?= wp_kses_post( $field['payment_method_description'] ); ?>
+										<?= wp_kses_post( $payment_method['payment_method_description'] ); ?>
 									</div>
 								</div>
 							<?php endforeach; ?>
