@@ -8,6 +8,7 @@ class Cart {
 		// Register scripts to make sure 'cart' is available everywhere and can be used in other scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 0 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_struger_data' ] );
 	}
 
 	public function register_scripts() {
@@ -30,6 +31,31 @@ class Cart {
 		wp_enqueue_script( 'cart' );
 	}
 
+	public function enqueue_struger_data() {
+		$currency = ! empty( ps_setting( 'currency' ) ) ? ps_setting( 'currency' ) : 'USD';
+		$price =  ! empty( rwmb_meta( 'price', get_the_ID() ) ) ? rwmb_meta( 'price', get_the_ID() ) : 0;
+		$price_before_sale = ! empty( rwmb_meta( 'price_before_sale', get_the_ID() ) ) ? rwmb_meta( 'price_before_sale', get_the_ID() ) : 0;
+	?>
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org/",
+			"@type": "Product",
+			"name": "<?php the_title( ) ?>",
+			"image": [
+			"<?php echo wp_get_attachment_url( get_post_thumbnail_id( get_the_ID(), 'full' ) )?>"
+			],
+			"description": "<?php echo esc_html( get_the_excerpt() ); ?>",
+			"offers": {
+			"@type": "Offer",
+			"priceCurrency": "<?php echo $currency ?>",
+			"price": "<?php echo $price ?>",
+			"priceValidUntil": "<?php echo $price_before_sale ?>",
+		  }
+		}
+		</script>
+
+	<?php
+	}
 	public static function cart( $args = [] ) {
 		$args             = wp_parse_args(
 			$args,
