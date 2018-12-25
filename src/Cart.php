@@ -33,7 +33,6 @@ class Cart {
 
 	public function enqueue_struger_data() {
 		$currency = ! empty( ps_setting( 'currency' ) ) ? ps_setting( 'currency' ) : 'USD';
-		$slug = ! empty( ps_setting( 'product_slug' ) ) ? ps_setting( 'product_slug' ) : 'product';
 		$price =  ! empty( rwmb_meta( 'price', get_the_ID() ) ) ? rwmb_meta( 'price', get_the_ID() ) : 0;
 		$price_before_sale = ! empty( rwmb_meta( 'price_before_sale', get_the_ID() ) ) ? rwmb_meta( 'price_before_sale', get_the_ID() ) : 0;
 	?>
@@ -46,40 +45,18 @@ class Cart {
 			"<?php echo wp_get_attachment_url( get_post_thumbnail_id( get_the_ID(), 'full' ) )?>"
 		],
 		"description": "<?php echo esc_html( get_the_excerpt() ) ?>",
-		"mpn": "<?php the_ID() ?>",
 		"sku": "<?php the_ID() ?>",
 		"brand": {
 			"@type": "Thing",
-			"name": "<?php echo $slug ?>"
+			"name": "<?php echo $_SERVER['SERVER_NAME'] ?>"
 		},
-		"aggregateRating": {
-			"@type": "AggregateRating",
-			"ratingValue": "4.8",
-			"reviewCount": "159"
-		},
-	  
 		"offers": {
 			"@type": "Offer",
 			"priceCurrency": "<?php echo $currency ?>",
 			"price": "<?php echo $price ?>",
-			"priceValidUntil": "<?php the_time('d/m/Y') ?>",
 			"url": "<?php the_permalink() ?>",
 			"itemCondition": "http://schema.org/UsedCondition",
-			"availability": "http://schema.org/InStock",
-			"seller": {
-				"@type": "Organization",
-				"name": "Admin"
-			}
-		},
-		"review": {
-			"@type": "Review",
-			"name": "<?php the_title() ?>",
-			"datePublished": "<?php the_time('d/m/Y') ?>",
-			"reviewBody": "<?php echo esc_html( get_the_excerpt() ) ?>",
-			"author": {
-				"@type": "Person",
-				"name": "Admin"
-			}
+			"availability": "http://schema.org/InStock"
 		}
 	}
 	</script>
