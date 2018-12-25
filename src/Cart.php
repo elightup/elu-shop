@@ -48,7 +48,7 @@ class Cart {
 		"sku": "<?php the_ID() ?>",
 		"brand": {
 			"@type": "Thing",
-			"name": "<?php echo $_SERVER['SERVER_NAME'] ?>"
+			"name": "<?php echo get_bloginfo('name') ?>"
 		},
 		"offers": {
 			"@type": "Offer",
