@@ -71,11 +71,11 @@ $info = json_decode( $item->info, true );
 			<thead>
 			<tr>
 				<td><?php esc_html_e( 'Name', 'elu-shop' ) ?></td>
-				<td><?php esc_html_e( 'Email', 'elu-shop' ) ?></td>
+				<!-- <td><?php esc_html_e( 'Email', 'elu-shop' ) ?></td> -->
 				<td><?php esc_html_e( 'Phone', 'elu-shop' ) ?></td>
 				<td><?php esc_html_e( 'Address', 'elu-shop' ) ?></td>
-				<td><?php esc_html_e( 'Payment Method', 'elu-shop' ) ?></td>
-				<td><?php esc_html_e( 'Shipping Method', 'elu-shop' ) ?></td>
+				<!-- <td><?php esc_html_e( 'Payment Method', 'elu-shop' ) ?></td>
+				<td><?php esc_html_e( 'Shipping Method', 'elu-shop' ) ?></td> -->
 				<td><?php esc_html_e( 'Note', 'elu-shop' ) ?></td>
 			</tr>
 			</thead>
