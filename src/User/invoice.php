@@ -21,6 +21,6 @@ class invoice {
 	}
 
 	protected function is_page() {
-		return is_page() && get_the_ID() == ps_setting( 'invoice_details' );
+		return is_page() && get_the_ID() == ps_setting( 'confirmation_page' );
 	}
 }

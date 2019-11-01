@@ -13,17 +13,17 @@
 		#>
 		<div class="template-checkout">
 			<div class="row">
-				<div class="col-lg-4 float-left checkout-info">
+				<div class="col-lg-6 float-left checkout-info">
 					<div class="checkout-title-cart"><?= __( 'Your Details', 'elu-shop' );?></div>
 					<div class="form-info info-details">
 						<div class="form-info__fields form-info__fields__name">
 							<p><?php esc_html_e( 'Name', 'elu-shop' );?></p>
 							<input class="form-info__name" type="text" name="checkout_info[name]" value="" required>
 						</div>
-						<div class="form-info__fields">
+						<!-- <div class="form-info__fields">
 							<p><?php esc_html_e( 'Email', 'elu-shop' );?></p>
 							<input class="form-info__email" type="email" name="checkout_info[email]" value="">
-						</div>
+						</div> -->
 						<div class="form-info__fields form-info__fields__phone">
 							<p><?php esc_html_e( 'Phone', 'elu-shop' );?></p>
 							<input class="form-info__phone" type="text" name="checkout_info[phone]" value="" required>
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 template-checkout__payments float-left">
+				<!-- <div class="col-lg-4 template-checkout__payments float-left">
 					<div class="col-lg-12 custom">
 						<div class="checkout-title-cart"><?= __( 'Payments', 'elu-shop' );?></div>
 						<div class="form-info check-deliverytype form-info--pay">
@@ -67,8 +67,8 @@
 							<?php endforeach; ?>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 template-checkout__cart float-left">
+				</div> -->
+				<div class="col-lg-6 template-checkout__cart float-left">
 					<table class="cart table">
 						<thead class="thead-dark">
 						    <tr>

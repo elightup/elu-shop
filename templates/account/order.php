@@ -33,10 +33,10 @@ $info = json_decode( $item->info, true );
 					?>
 				</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<th><?php esc_html_e( 'Shipping Method', 'elu-shop' ); ?></th>
 				<td><?= $info['delivery']; ?></td>
-			</tr>
+			</tr> -->
 			<tr>
 				<th><?php esc_html_e( 'Total', 'elu-shop' ); ?>:</th>
 				<td><?= number_format( $item->amount, 0, '', '.' ); ?> <?= ps_setting( 'currency' ); ?></td>
@@ -50,10 +50,10 @@ $info = json_decode( $item->info, true );
 				<th><?php esc_html_e( 'Name', 'elu-shop' ); ?></th>
 				<td><?= $info['name']; ?></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<th><?php esc_html_e( 'Email', 'elu-shop' ); ?>:</th>
 				<td><?= $info['email']; ?></td>
-			</tr>
+			</tr> -->
 			<tr>
 				<th><?php esc_html_e( 'Phone', 'elu-shop' ); ?>:</th>
 				<td><?= $info['phone']; ?></td>
