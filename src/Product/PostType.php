@@ -30,7 +30,7 @@ class PostType {
 		$args   = [
 			'label'       => __( 'Products', 'elu-shop' ),
 			'labels'      => $labels,
-			'supports'    => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
+			'supports'    => [ 'title', 'editor', 'excerpt', 'thumbnail', 'comments' ],
 			'public'      => true,
 			'has_archive' => true,
 			'menu_icon'   => 'dashicons-cart',
