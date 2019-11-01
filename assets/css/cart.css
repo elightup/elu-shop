@@ -63,3 +63,32 @@
 .clear {
     clear: both;
 }
+
+#notification {
+    width: 235px;
+    position: fixed;
+    top: 90px;
+    right: 5px;
+    list-style-type: none;
+    z-index: 10000;
+}
+#notification p {
+    margin: 0;
+}
+#notification li.in {
+    opacity: .8;
+}
+#notification li {
+    margin-bottom: 5px;
+    background: #e67817;
+    color: #fff;
+}
+.load-icon {
+    /*background: url(//phoenixcomputer.vn/wp-content/plugins/elightup-customers-phoenix-shop/assets/css/load.svg) #333333a3 center center no-repeat;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+}

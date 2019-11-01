@@ -54,7 +54,7 @@
 				idcart = key;
 			}
 		});
-		
+
 		if ( idcart == '' ) {
 			$ ( '.items', '.dropdown-toggle.mini-cart' ).html( count );
 			cart.addProduct( productInfo, quantity );
@@ -74,7 +74,7 @@
 	}
 	function clickviewcart( e ) {
 		e.preventDefault();
-		var link = `${CartParams.checkoutUrl}`;
+		var link = `${CartParams.cartUrl}`;
 		location.href = link;
 	}
 

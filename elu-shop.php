@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name: ELU Shop
- * Plugin URI: https://elightup.com/products/
+ * Plugin URI:  https://elightup.com
  * Description: An easy e-commerce solution for WordPress.
- * Version: 0.1.0
- * Author: eLightUp
- * Author URI: https://elightup.com
- * License: GPL 2+
+ * Version:     0.1.0
+ * Author:      eLightUp
+ * Author URI:  https://elightup.com
+ * License:     GPL 2+
  * Text Domain: elu-shop
  * Domain Path: /languages/
  */
@@ -32,8 +32,9 @@ register_activation_hook( __FILE__, function () use ( $schema ) {
 ( new Checkout() )->init();
 ( new Order\Notification() )->init();
 ( new User\invoice() )->init();
+
+( new Settings() )->init();
 if ( is_admin() ) {
-	( new Settings() )->init();
 	( new Order\AdminList() )->init();
 } else {
 	( new Assets() )->init();
