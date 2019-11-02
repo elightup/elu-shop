@@ -54,7 +54,7 @@ $info = json_decode( $item->info, true );
 				<td><?php esc_html_e( 'Total', 'elu-shop' ) ?></td>
 				<td><?= number_format_i18n( $item->amount, 0 ); ?> <?= esc_html( ps_setting( 'currency' ) ); ?></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td><?php esc_html_e( 'Customer', 'elu-shop' ) ?></td>
 				<td>
 					<?php
@@ -62,7 +62,7 @@ $info = json_decode( $item->info, true );
 					echo esc_html( $user->display_name );
 					?>
 				</td>
-			</tr>
+			</tr> -->
 		</table>
 	</div>
 	<div class="info-user">

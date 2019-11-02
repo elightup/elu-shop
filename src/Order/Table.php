@@ -223,9 +223,9 @@ class Table extends \WP_List_Table {
 					[
 						'action'   => 'close',
 						'id'       => $item['id'],
-						'user'     => $user->ID,
+						// 'user'     => $user->ID,
 						'amount'   => number_format( $item['amount'], 0, '', '.' ),
-						'payments' => $payments[0]['pay'],
+						// 'payments' => $payments[0]['pay'],
 						'_wpnonce' => wp_create_nonce( 'ps_close_order' ),
 					],
 					$this->base_url
@@ -239,9 +239,9 @@ class Table extends \WP_List_Table {
 					[
 						'action'   => 'open',
 						'id'       => $item['id'],
-						'user'     => $user->ID,
+						// 'user'     => $user->ID,
 						'amount'   => number_format( $item['amount'], 0, '', '.' ),
-						'payments' => $payments[0]['pay'],
+						// 'payments' => $payments[0]['pay'],
 						'_wpnonce' => wp_create_nonce( 'ps_open_order' ),
 					],
 					$this->base_url
@@ -267,11 +267,12 @@ class Table extends \WP_List_Table {
 
 	public function column_daily( $item ) {
 		$daily_id = json_decode( $item['user'] );
-		$daily    = get_userdata( $daily_id );
-		if ( 'dai_ly' === $daily->roles[0] ) {
-			echo esc_html( $daily->display_name );
+		if ( $daily_id ) {
+			$daily = get_userdata( $daily_id );
+			if ( 'dai_ly' === $daily->roles[0] ) {
+				echo esc_html( $daily->display_name );
+			}
 		}
-
 	}
 
 	public function column_amount( $item ) {
