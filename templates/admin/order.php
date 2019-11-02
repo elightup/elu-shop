@@ -82,11 +82,11 @@ $info = json_decode( $item->info, true );
 			<tbody>
 			<tr>
 				<td><?= esc_html( $info['name'] ); ?></td>
-				<td><?= esc_html( $info['email'] ); ?></td>
+				<!-- <td><?= esc_html( $info['email'] ); ?></td> -->
 				<td><?= esc_html( $info['phone'] ); ?></td>
 				<td><?= esc_html( $info['address'] ); ?></td>
-				<td><?= esc_html( $info['payment_method'] ); ?></td>
-				<td><?= esc_html( $info['shipping_method'] ); ?></td>
+				<!-- <td><?= esc_html( $info['payment_method'] ); ?></td>
+				<td><?= esc_html( $info['shipping_method'] ); ?></td> -->
 				<td><?= esc_html( $item->note ); ?></td>
 			</tr>
 			</tbody>

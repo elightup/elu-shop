@@ -163,6 +163,7 @@ class Table extends \WP_List_Table {
 			'products' => __( 'Product', 'elu-shop' ),
 			'amount'   => __( 'Total', 'elu-shop' ),
 			'date'     => __( 'Date', 'elu-shop' ),
+			'daily'    => __( 'Đại lý', 'elu-shop' ),
 		];
 
 		return $columns;
@@ -262,6 +263,15 @@ class Table extends \WP_List_Table {
 	public function column_customer( $item ) {
 		$info = json_decode( $item['info'] );
 		echo esc_html( $info->name );
+	}
+
+	public function column_daily( $item ) {
+		$daily_id = json_decode( $item['user'] );
+		$daily    = get_userdata( $daily_id );
+		if ( 'dai_ly' === $daily->roles[0] ) {
+			echo esc_html( $daily->display_name );
+		}
+
 	}
 
 	public function column_amount( $item ) {
