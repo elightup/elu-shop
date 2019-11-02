@@ -14,10 +14,13 @@
 namespace ELUSHOP;
 
 // Prevent loading this file directly.
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || die;
+
 require 'vendor/autoload.php';
+
 define( 'ELU_SHOP_URL', plugin_dir_url( __FILE__ ) );
 define( 'ELU_SHOP_DIR', plugin_dir_path( __FILE__ ) );
+define( 'ELU_SHOP_VER', '0.1.0' );
 
 load_plugin_textdomain( 'elu-shop', false, plugin_basename( ELU_SHOP_DIR ) . '/languages' );
 
