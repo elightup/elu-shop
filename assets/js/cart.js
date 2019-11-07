@@ -41,23 +41,33 @@
 			cart.data = JSON.parse( data );
 		}
 
-		var idcart = '',
-			add_cart_group = $(this).parent();
-
+		var add_cart_group  = $(this).parent();
+			cart_id         = [];
+			mini_cart_count = 0;
+			quantity        = $( '.quantity_products', add_cart_group ).val();
 		const productInfo = $( this ).data( 'info' );
-		var quantity = $( '.quantity_products', add_cart_group ).val();
-		$( '.quantity_products', add_cart_group ).val( parseInt( quantity ) + 1  );
 
-		// console.log(quantity);
-		$mini_cart_count = 0;
 		$.each( cart['data'], function( key, value ) {
-			$mini_cart_count += parseInt( value['quantity'] );
+			mini_cart_count += parseInt( value['quantity'] );
+			cart_id.push( value['id'] );
+			if ( value['id'] == productInfo['id'] ) {
+				$old_quantity = value['quantity'];
+				$new_quantity = parseInt( $old_quantity ) + 1;
+			}
 		});
-		$mini_cart_count++;
 
-		$( '.mini-cart-count' ).html( $mini_cart_count );
-		cart.addProduct( productInfo, quantity );
+		// add or update product cart.
+		if ( cart_id.includes( productInfo['id'] ) ) {
+			cart.updateProduct( productInfo['id'], $new_quantity );
+		} else {
+			cart.addProduct( productInfo, quantity );
+		}
 
+		// add count to minicart when click add to cart button.
+		mini_cart_count++;
+		$( '.mini-cart-count' ).html( mini_cart_count );
+
+		// Notify when click add to cart button
 		var add_success = $( this ).data('type');
         setTimeout(function(){
 			$( '.load-icon', '.add-to-cart' ).remove();
@@ -78,6 +88,7 @@
 
 	cart.load();
 
+	// add mini cart count.
 	$mini_cart_count = 0;
 	$.each( cart['data'], function( key, value ) {
 		$mini_cart_count += parseInt( value['quantity'] );

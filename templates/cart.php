@@ -49,7 +49,6 @@
 		<div class="total-pay-product text-right"><?php esc_html_e( 'Total:', 'elu-shop' ) ?> <span class="total__number">{{ parseFloat( total ).format(0, 3, '.', ',') }} <?= $symbol; ?></span>
 				</div>
 		<div class="submit-cart-shop text-right">
-			<a class="btn btn-primary back-home" href="<?= home_url( '/' ); ?>"><?= __( 'Go to home', 'elu-shop' );?></a>
 			<button class="place-order btn btn-success"><?= __( 'Checkout', 'elu-shop' );?></button>
 		</div>
 		<#
