@@ -52,7 +52,7 @@
 			cart_id.push( value['id'] );
 			if ( value['id'] == productInfo['id'] ) {
 				$old_quantity = value['quantity'];
-				$new_quantity = parseInt( $old_quantity ) + 1;
+				$new_quantity = parseInt( $old_quantity ) + parseInt( quantity );
 			}
 		});
 
@@ -64,7 +64,7 @@
 		}
 
 		// add count to minicart when click add to cart button.
-		mini_cart_count++;
+		mini_cart_count += parseInt( quantity );
 		$( '.mini-cart-count' ).html( mini_cart_count );
 
 		// Notify when click add to cart button
@@ -74,11 +74,11 @@
 			new $.notification('<i class="fa fa-shopping-cart"></i> ' + add_success , {"class" : 'alert-notification', timeout : 2000, click : null, close : false});
 		}, 1000);
 
-		$( this ).addClass('view-cart');
-		var button = $( this ).data('type')
-		if ( button ) {
-			$( this, '.view-cart' ).attr('title','Xem giỏ hàng');
-		}
+		// $( this ).addClass('view-cart');
+		// var button = $( this ).data('type')
+		// if ( button ) {
+		// 	$( this, '.view-cart' ).attr('title','Xem giỏ hàng');
+		// }
 	}
 	function clickviewcart( e ) {
 		e.preventDefault();
@@ -96,7 +96,7 @@
 	$( '.mini-cart-count' ).html( $mini_cart_count );
 
 	$( function() {
-		// $( document ).on( 'click', '.add-to-cart.view-cart', clickviewcart );
+		$( document ).on( 'click', '.add-to-cart.view-cart', clickviewcart );
 		$( document ).on( 'click', '.add-to-cart', clickHandle );
 
 	} );

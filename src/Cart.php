@@ -70,6 +70,7 @@ class Cart {
 			[
 				'id'   => get_the_ID(),
 				'text' => __( 'Buy now', 'elu-shop' ),
+				'type' => __( 'Added to shopping cart', 'elu-shop' ),
 				'echo' => true,
 			]
 		);
@@ -78,8 +79,9 @@ class Cart {
 		<input type="number" id="quantity_products" class="quantity_products input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
 		</div>';
 		$button_view_cart = sprintf(
-			'<a class="add-to-cart view-cart btn btn-primary" data-info="%s">%s</a>',
+			'<a class="add-to-cart view-cart btn btn-primary" data-info="%s" data-type="%s">%s</a>',
 			esc_attr( wp_json_encode( self::get_product_info( $args['id'] ) ) ),
+			esc_attr( $args['type'] ),
 			esc_attr( $args['text'] )
 		);
 		if ( $args['echo'] ) {

@@ -1,5 +1,6 @@
 #cart {
 	padding: 20px;
+    overflow-x: auto;
 }
 #cart .cart.table {
 	margin-bottom: 25px;
