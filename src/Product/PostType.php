@@ -25,8 +25,9 @@ class PostType {
 			'parent_item_colon'  => __( 'Parent Products:', 'elu-shop' ),
 			'all_items'          => __( 'All Products', 'elu-shop' ),
 		];
-		$slug   = ps_setting( 'product_slug' );
-		$slug   = $slug ? $slug : 'product';
+		$options = get_option( 'elu_shop' );
+		$slug    = isset( $options[ 'product_slug' ] ) ? $options[ 'product_slug' ] : 'product';
+
 		$args   = [
 			'label'       => __( 'Products', 'elu-shop' ),
 			'labels'      => $labels,
@@ -66,8 +67,8 @@ class PostType {
 			'hierarchical'      => true,
 			'show_admin_column' => true,
 		];
-		$category_slug   = ps_setting( 'product_category_slug' );
-		$category_slug   = $category_slug ? $category_slug : 'product-category';
+		$options       = get_option( 'elu_shop' );
+		$category_slug = isset( $options[ 'product_category_slug' ] ) ? $options[ 'product_category_slug' ] : 'product-category';
 		register_taxonomy( $category_slug, 'product', $category_args );
 
 		$tag_labels = [
@@ -95,12 +96,14 @@ class PostType {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 		];
-		$tag_slug   = ps_setting( 'product_tag_slug' );
-		$tag_slug   = $tag_slug ? $tag_slug : 'product-tag';
+		$options  = get_option( 'elu_shop' );
+		$tag_slug = isset( $options[ 'product_tag_slug' ] ) ? $options[ 'product_tag_slug' ] : 'product-tag';
 		register_taxonomy( $tag_slug, 'product', $tag_args );
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
+		$options  = get_option( 'elu_shop' );
+		$currency = $options[ 'currency' ];
 		$meta_boxes[] = [
 			'title'      => __( 'Product Information', 'elu-shop' ),
 			'post_types' => [ 'product' ],
@@ -110,7 +113,7 @@ class PostType {
 					'name' => __( 'Price', 'elu-shop' ),
 					'type' => 'number',
 					'min'  => 0,
-					'desc' => sprintf( __( 'In %s.', 'elu-shop' ), ps_setting( 'currency' ) ),
+					'desc' => sprintf( __( 'In %s.', 'elu-shop' ), $currency ),
 					'size' => 10,
 				],
 				[
@@ -118,7 +121,7 @@ class PostType {
 					'name' => __( 'Price before sale', 'elu-shop' ),
 					'type' => 'number',
 					'min'  => 0,
-					'desc' => sprintf( __( 'In %s. Leave blank if the product has no discount.', 'elu-shop' ), ps_setting( 'currency' ) ),
+					'desc' => sprintf( __( 'In %s. Leave blank if the product has no discount.', 'elu-shop' ), $currency ),
 					'size' => 10,
 				],
 			],

@@ -94,7 +94,11 @@
 }
 
 .mini-cart i {
-    font-size: 20px;
+    font-size: 24px;
+}
+
+.mini-cart a {
+   color: #1b1b1b !important;
 }
 
 .mini-cart-count {
@@ -103,4 +107,8 @@
     text-align: center;
     border-radius: 20px;
     font-size: 13px;
+    right: 12px;
+    top: -5px;
+    background: #fff;
+    padding: 2px 4px;
 }
