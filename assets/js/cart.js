@@ -72,6 +72,7 @@
         setTimeout(function(){
 			$( '.load-icon', '.add-to-cart' ).remove();
 			new $.notification('<i class="fa fa-shopping-cart"></i> ' + add_success , {"class" : 'alert-notification', timeout : 2000, click : null, close : false});
+			$( '.view-cart', add_cart_group ).css( 'display', 'inline-block' );
 		}, 1000);
 
 		// $( this ).addClass('view-cart');
@@ -96,7 +97,8 @@
 	$( '.mini-cart-count' ).html( $mini_cart_count );
 
 	$( function() {
-		$( document ).on( 'click', '.add-to-cart.view-cart', clickviewcart );
+		$( '.cart-button .view-cart' ).css( 'display', 'none' );
+		$( document ).on( 'click', '.add-to-cart.buy-now', clickviewcart );
 		$( document ).on( 'click', '.add-to-cart', clickHandle );
 
 	} );

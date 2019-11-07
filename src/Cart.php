@@ -79,7 +79,7 @@ class Cart {
 		<input type="number" id="quantity_products" class="quantity_products input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
 		</div>';
 		$button_view_cart = sprintf(
-			'<a class="add-to-cart view-cart btn btn-primary" data-info="%s" data-type="%s">%s</a>',
+			'<a class="add-to-cart buy-now btn btn-primary" data-info="%s" data-type="%s">%s</a>',
 			esc_attr( wp_json_encode( self::get_product_info( $args['id'] ) ) ),
 			esc_attr( $args['type'] ),
 			esc_attr( $args['text'] )
@@ -110,8 +110,11 @@ class Cart {
 			esc_attr( $args['type'] ),
 			esc_attr( $args['text'] )
 		);
+		$cart_page = get_permalink( ps_setting( 'cart_page' ) );
 		if ( $args['echo'] ) {
-			echo '<div class="cart-button">' . $quantity . $button_add_cart . '</div>';
+			echo '<div class="cart-button">' . $quantity . $button_add_cart . '
+				<a class="view-cart btn btn-primary" href="' . $cart_page . '" title="' . __( 'View cart', 'elu-shop' ) . '">'. __( 'View cart', 'elu-shop' ) .'</a>
+			</div>';
 		}
 	}
 
