@@ -93,13 +93,13 @@
 									</div>
 								</td>
 								<td class="cart__quantity"><input type="number" value="{{ product.quantity }}" min="1" data-product_id="{{ product.id }}" style="width: 70px;text-align: center;"></td>
-								<td class="cart__subtotal"><span class="cart__subtotal__number">{{ parseFloat( subtotal ).format(0, 3, '.', ',') }}</span> <?= $symbol; ?></td>
+								<td class="cart__subtotal"><span class="cart__subtotal__number">{{ format_number(0, 3, '.', ',', parseFloat( subtotal )) }}</span> <?= $symbol; ?></td>
 							</tr>
 							<#
 						} );
 						#>
 					</table>
-					<div class="total"><?= __( 'Total:', 'elu-shop' );?> <span class="total__number">{{ parseFloat( total ).format(0, 3, '.', ',') }}</span> <?= $symbol; ?></div>
+					<div class="total"><?= __( 'Total:', 'elu-shop' );?> <span class="total__number">{{ format_number(0, 3, '.', ',', parseFloat( total )) }}</span> <?= $symbol; ?></div>
 					<p class="order-note">
 						<label for="order-note"><?= __( 'Order note', 'elu-shop' );?></label>
 						<textarea id="order-note"></textarea>
