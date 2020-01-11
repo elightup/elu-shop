@@ -141,12 +141,7 @@
 	window.cart = cart;
 } )( jQuery, window, document, localStorage, CartParams );
 
-// Number.prototype.format = function(n, x, s, c) {
-//     var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
-//         num = this.toFixed(Math.max(0, ~~n));
-//     return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-// };
-function format_number(n, x, s, c, number) {
+function eFormatNumber(n, x, s, c, number) {
 	var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
 		num = number.toFixed(Math.max(0, ~~n));
 	return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));

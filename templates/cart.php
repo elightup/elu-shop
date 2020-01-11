@@ -37,8 +37,8 @@
 						<a href="{{ product.link }}"><img src="{{product.url}}" alt="{{product.title}}" />{{ product.title }}</a>
 					</td>
 					<td class="cart__quantity"><input type="number" value="{{ product.quantity }}" min="1" data-product_id="{{ product.id }}" style="width: 70px;float: initial;margin: auto;text-align: center;"></td>
-					<td class="cart__price"><div class="price__coin">{{ format_number(0, 3, '.', ',', parseFloat( product.price )) }} <?= $symbol; ?></div></td>
-					<td class="cart__subtotal"><span class="cart__subtotal__number">{{ format_number(0, 3, '.', ',', parseFloat( subtotal )) }}</span> <?= $symbol; ?></td>
+					<td class="cart__price"><div class="price__coin">{{ eFormatNumber(0, 3, '.', ',', parseFloat( product.price )) }} <?= $symbol; ?></div></td>
+					<td class="cart__subtotal"><span class="cart__subtotal__number">{{ eFormatNumber(0, 3, '.', ',', parseFloat( subtotal )) }}</span> <?= $symbol; ?></td>
 					<td class="cart__remove-product"> <button class="cart__remove btn btn-link" data-product_id="{{ product.id }}" title="Xóa sản phẩm này">&times;</button> </td>
 				</tr>
 				<#
@@ -46,7 +46,7 @@
 			#>
 			</tbody>
 		</table>
-		<div class="total-pay-product text-right"><?php esc_html_e( 'Total:', 'elu-shop' ) ?> <span class="total__number">{{ format_number(0, 3, '.', ',', parseFloat( total )) }} <?= $symbol; ?></span>
+		<div class="total-pay-product text-right"><?php esc_html_e( 'Total:', 'elu-shop' ) ?> <span class="total__number">{{ eFormatNumber(0, 3, '.', ',', parseFloat( total )) }} <?= $symbol; ?></span>
 				</div>
 		<div class="submit-cart-shop text-right">
 			<button class="place-order btn btn-success"><?= __( 'Checkout', 'elu-shop' );?></button>
